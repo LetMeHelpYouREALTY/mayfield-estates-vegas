@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import NearbyAmenitiesSection from '@/components/amenities/NearbyAmenitiesSection';
 
 const homeFaqSchema = {
   '@context': 'https://schema.org',
@@ -232,6 +233,7 @@ export default function Home() {
                     <li>✓ Luxury Amenities</li>
                     <li>✓ Spacious Estates</li>
                   </ul>
+                  <p className="mt-3 text-sm text-blue-600 font-medium">See <Link href="/amenities" className="hover:underline">nearby amenities</Link></p>
                 </div>
               </Link>
               <Link href="/las-vegas-neighborhoods/summerlin" className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
@@ -271,8 +273,10 @@ export default function Home() {
           </div>
         </section>
 
+        <NearbyAmenitiesSection className="bg-white" />
+
         {/* Properties Section */}
-        <section id="properties" className="py-20 bg-white">
+        <section id="properties" className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center mb-8">Featured Properties</h2>
             <div 

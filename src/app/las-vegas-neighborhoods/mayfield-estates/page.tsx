@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import NearbyAmenitiesSection from '@/components/amenities/NearbyAmenitiesSection';
 
 export const metadata: Metadata = {
   title: 'Mayfield Estates Las Vegas | Exclusive Gated Community | Luxury Homes',
@@ -250,6 +251,12 @@ export default function MayfieldEstatesPage() {
               </div>
             </div>
           </div>
+
+          <NearbyAmenitiesSection
+            title="What's Nearby Mayfield Estates"
+            description="Filter the map for grocery, parks, healthcare, schools, and more around Mayfield Estates in Northwest Las Vegas."
+            className="bg-gray-50"
+          />
 
           {/* FAQ Section */}
           <div className="py-16 bg-white">
