@@ -34,95 +34,138 @@ export type AmenityCategoryId =
 export type AmenityCategory = {
   id: AmenityCategoryId;
   label: string;
-  /** Google Places (New) primary types */
+  /** Google Places (New) primary types — one searchNearby per category */
   includedPrimaryTypes: string[];
-  /** Legacy PlacesService type (first entry used when falling back) */
-  legacyType?: string;
 };
 
 /** Suburban gated community — standard category order including schools */
 export const AMENITY_CATEGORIES: AmenityCategory[] = [
-  { id: 'restaurants', label: 'Restaurants', includedPrimaryTypes: ['restaurant'], legacyType: 'restaurant' },
-  { id: 'cafes', label: 'Cafes', includedPrimaryTypes: ['cafe', 'coffee_shop'], legacyType: 'cafe' },
-  { id: 'grocery', label: 'Grocery', includedPrimaryTypes: ['grocery_store', 'supermarket'], legacyType: 'grocery_or_supermarket' },
-  { id: 'parks', label: 'Parks', includedPrimaryTypes: ['park'], legacyType: 'park' },
-  { id: 'golf', label: 'Golf', includedPrimaryTypes: ['golf_course'], legacyType: 'golf_course' },
-  { id: 'healthcare', label: 'Healthcare', includedPrimaryTypes: ['hospital', 'doctor'], legacyType: 'hospital' },
-  { id: 'pharmacies', label: 'Pharmacies', includedPrimaryTypes: ['pharmacy'], legacyType: 'pharmacy' },
-  { id: 'shopping', label: 'Shopping', includedPrimaryTypes: ['shopping_mall', 'department_store'], legacyType: 'shopping_mall' },
-  { id: 'parking', label: 'Parking', includedPrimaryTypes: ['parking'], legacyType: 'parking' },
-  { id: 'fitness', label: 'Fitness', includedPrimaryTypes: ['gym'], legacyType: 'gym' },
-  { id: 'schools', label: 'Schools', includedPrimaryTypes: ['school', 'primary_school', 'secondary_school'], legacyType: 'school' },
+  { id: 'restaurants', label: 'Restaurants', includedPrimaryTypes: ['restaurant'] },
+  { id: 'cafes', label: 'Cafes', includedPrimaryTypes: ['cafe', 'coffee_shop'] },
+  { id: 'grocery', label: 'Grocery', includedPrimaryTypes: ['grocery_store', 'supermarket'] },
+  { id: 'parks', label: 'Parks', includedPrimaryTypes: ['park'] },
+  { id: 'golf', label: 'Golf', includedPrimaryTypes: ['golf_course'] },
+  { id: 'healthcare', label: 'Healthcare', includedPrimaryTypes: ['hospital', 'doctor'] },
+  { id: 'pharmacies', label: 'Pharmacies', includedPrimaryTypes: ['pharmacy'] },
+  { id: 'shopping', label: 'Shopping', includedPrimaryTypes: ['shopping_mall', 'department_store'] },
+  { id: 'parking', label: 'Parking', includedPrimaryTypes: ['parking'] },
+  { id: 'fitness', label: 'Fitness', includedPrimaryTypes: ['gym'] },
+  { id: 'schools', label: 'Schools', includedPrimaryTypes: ['school', 'primary_school', 'secondary_school'] },
 ];
 
 export type CuratedPlace = {
   name: string;
-  address: string;
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
   category: AmenityCategoryId;
   schemaType: string;
+  /** Official business or agency page used to verify NAP */
+  sourceUrl: string;
   note?: string;
 };
 
-/** Verified names & addresses from public sources (grocery, hospital, city parks, CCSD schools). */
+export function formatCuratedAddress(place: CuratedPlace): string {
+  return `${place.streetAddress}, ${place.addressLocality}, ${place.addressRegion} ${place.postalCode}`;
+}
+
+/** Names and addresses verified against official sourceUrl on each entry (2026-09-27). */
 export const CURATED_NEARBY_PLACES: CuratedPlace[] = [
   {
     name: "Smith's Food and Drug",
-    address: '3013 W Craig Rd, North Las Vegas, NV 89032',
+    streetAddress: '3013 W Craig Rd',
+    addressLocality: 'North Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89032',
     category: 'grocery',
     schemaType: 'GroceryStore',
+    sourceUrl: 'https://www.smithsfoodanddrug.com/',
   },
   {
     name: "Smith's Pharmacy",
-    address: '3013 W Craig Rd, North Las Vegas, NV 89032',
+    streetAddress: '3013 W Craig Rd',
+    addressLocality: 'North Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89032',
     category: 'pharmacies',
     schemaType: 'Pharmacy',
+    sourceUrl: 'https://www.smithsfoodanddrug.com/',
   },
   {
     name: 'MountainView Hospital',
-    address: '3100 N Tenaya Way, Las Vegas, NV 89128',
+    streetAddress: '3100 N Tenaya Way',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89128',
     category: 'healthcare',
     schemaType: 'Hospital',
+    sourceUrl: 'https://www.sunrisehealthinfo.com/locations/mountainview-hospital',
     note: 'Full-service hospital northwest of the community.',
   },
   {
     name: 'Centennial Hills Park',
-    address: '7101 N Buffalo Dr, Las Vegas, NV 89131',
+    streetAddress: '7101 N Buffalo Dr',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89131',
     category: 'parks',
     schemaType: 'Park',
-    note: 'Regional park with trails, sports fields, and water play areas (City of Las Vegas).',
+    sourceUrl: 'https://www.lasvegasnevada.gov/residents/parks-facilities/centennial-hills-park',
+    note: 'City of Las Vegas regional park with trails, sports fields, and water play areas.',
   },
   {
     name: 'Floyd Lamb Park at Tule Springs',
-    address: '9200 Tule Springs Rd, Las Vegas, NV 89131',
+    streetAddress: '9200 Tule Springs Rd',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89131',
     category: 'parks',
     schemaType: 'Park',
+    sourceUrl: 'https://www.lasvegasnevada.gov/Residents/Parks-Facilities/Floyd-Lamb-Park',
   },
   {
     name: 'Ruthe Deskin Elementary School',
-    address: '4550 N Pioneer Way, Las Vegas, NV 89129',
+    streetAddress: '4550 N Pioneer Way',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89129',
     category: 'schools',
     schemaType: 'School',
+    sourceUrl: 'https://www.ruthedeskineagles.org/',
     note: 'Clark County School District.',
   },
   {
     name: 'Justice Myron E. Leavitt Middle School',
-    address: '4701 Quadrel St, Las Vegas, NV 89129',
+    streetAddress: '4701 Quadrel St',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89129',
     category: 'schools',
     schemaType: 'School',
+    sourceUrl: 'https://www.leavittms.net/find-us',
     note: 'Clark County School District.',
   },
   {
     name: 'Centennial High School',
-    address: '10200 Centennial Pkwy, Las Vegas, NV 89149',
+    streetAddress: '10200 Centennial Pkwy',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89149',
     category: 'schools',
     schemaType: 'School',
+    sourceUrl: 'https://www.centennialhighschool.org/apps/contact/',
     note: 'Clark County School District.',
   },
   {
     name: 'Las Vegas Paiute Golf Resort',
-    address: '10325 Nu-Wav Kaiv Blvd, Las Vegas, NV 89124',
+    streetAddress: '10325 Nu-Wav Kaiv Blvd',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89124',
     category: 'golf',
     schemaType: 'GolfCourse',
+    sourceUrl: 'https://lvpaiutegolf.com/',
   },
 ];
 

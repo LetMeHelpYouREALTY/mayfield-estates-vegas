@@ -1,16 +1,19 @@
 'use client';
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
 import {
   AMENITY_CATEGORIES,
   AmenityCategoryId,
   CURATED_NEARBY_PLACES,
+  formatCuratedAddress,
   getCuratedPlacesByCategory,
   getDirectionsUrl,
   getEmbedMapUrl,
   MAYFIELD_COMMUNITY,
+  type CuratedPlace,
 } from '@/config/community-amenities';
+import { searchCategory, type NearbyPlaceResult } from '@/lib/amenity-places-search';
+import { loadGoogleMaps, mapsAuthFailed } from '@/lib/google-maps-loader';
 
 export type AmenityMapProps = {
   /** Shorter map on homepage sections */
@@ -20,34 +23,50 @@ export type AmenityMapProps = {
   className?: string;
 };
 
-type MapPlaceResult = {
-  id: string;
-  name: string;
-  address: string;
-  rating?: number;
-  userRatingCount?: number;
-  lat: number;
-  lng: number;
-};
-
 const MAP_HEIGHT_COMPACT = 380;
 const MAP_HEIGHT_FULL = 480;
-const SEARCH_RADIUS_M = 8000;
 
-function buildInfoWindowHtml(place: MapPlaceResult): string {
-  const ratingLine =
-    place.rating != null
-      ? `<p class="text-sm text-gray-600">Rating: ${place.rating}${place.userRatingCount != null ? ` (${place.userRatingCount} reviews)` : ''}</p>`
-      : '';
-  const directions = getDirectionsUrl(place.name, place.address);
-  return `
-    <div style="max-width:240px;font-family:system-ui,sans-serif">
-      <strong>${place.name}</strong>
-      <p class="text-sm" style="margin:4px 0;color:#444">${place.address}</p>
-      ${ratingLine}
-      <a href="${directions}" target="_blank" rel="noopener noreferrer" style="color:#2563eb;font-weight:600">Directions</a>
-    </div>
-  `;
+function buildInfoWindowElement(place: NearbyPlaceResult): HTMLElement {
+  const wrap = document.createElement('div');
+  wrap.style.maxWidth = '240px';
+  wrap.style.fontFamily = 'system-ui, sans-serif';
+
+  const title = document.createElement('strong');
+  title.textContent = place.name;
+  wrap.appendChild(title);
+
+  if (place.address) {
+    const addr = document.createElement('p');
+    addr.style.margin = '4px 0';
+    addr.style.color = '#444';
+    addr.textContent = place.address;
+    wrap.appendChild(addr);
+  }
+
+  const link = document.createElement('a');
+  link.href = place.mapsUri ?? getDirectionsUrl(place.name, place.address);
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.style.color = '#2563eb';
+  link.style.fontWeight = '600';
+  link.textContent = 'Directions';
+  wrap.appendChild(link);
+
+  return wrap;
+}
+
+function buildCommunityInfoWindowElement(): HTMLElement {
+  const wrap = document.createElement('div');
+  wrap.style.fontFamily = 'system-ui, sans-serif';
+  const title = document.createElement('strong');
+  title.textContent = MAYFIELD_COMMUNITY.name;
+  wrap.appendChild(title);
+  const addr = document.createElement('p');
+  addr.style.margin = '4px 0';
+  addr.style.color = '#444';
+  addr.textContent = `${MAYFIELD_COMMUNITY.city}, ${MAYFIELD_COMMUNITY.state} ${MAYFIELD_COMMUNITY.postalCode}`;
+  wrap.appendChild(addr);
+  return wrap;
 }
 
 export default function AmenityMap({
@@ -67,7 +86,7 @@ export default function AmenityMap({
   const [isInView, setIsInView] = useState(false);
   const [activeCategory, setActiveCategory] = useState<AmenityCategoryId>(defaultCategory);
   const [apiStatus, setApiStatus] = useState<'idle' | 'loading' | 'ready' | 'fallback'>('idle');
-  const [livePlaces, setLivePlaces] = useState<MapPlaceResult[]>([]);
+  const [livePlaces, setLivePlaces] = useState<NearbyPlaceResult[]>([]);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const filterGroupId = useId();
@@ -86,6 +105,17 @@ export default function AmenityMap({
     markersRef.current.forEach((m) => m.setMap(null));
     markersRef.current = [];
   }, []);
+
+  const enterFallback = useCallback(() => {
+    clearMarkers();
+    communityMarkerRef.current?.setMap(null);
+    communityMarkerRef.current = null;
+    mapInstanceRef.current = null;
+    infoWindowRef.current = null;
+    setLivePlaces([]);
+    setStatusMessage(null);
+    setApiStatus('fallback');
+  }, [clearMarkers]);
 
   const placeCommunityMarker = useCallback((map: google.maps.Map) => {
     if (communityMarkerRef.current) {
@@ -107,16 +137,14 @@ export default function AmenityMap({
     });
     marker.addListener('click', () => {
       if (!infoWindowRef.current) return;
-      infoWindowRef.current.setContent(
-        `<div style="font-family:system-ui,sans-serif"><strong>${MAYFIELD_COMMUNITY.name}</strong><p style="margin:4px 0;color:#444">${MAYFIELD_COMMUNITY.city}, ${MAYFIELD_COMMUNITY.state} ${MAYFIELD_COMMUNITY.postalCode}</p></div>`
-      );
+      infoWindowRef.current.setContent(buildCommunityInfoWindowElement());
       infoWindowRef.current.open(map, marker);
     });
     communityMarkerRef.current = marker;
   }, [center]);
 
   const renderMarkers = useCallback(
-    (map: google.maps.Map, places: MapPlaceResult[]) => {
+    (map: google.maps.Map, places: NearbyPlaceResult[]) => {
       clearMarkers();
       places.forEach((place) => {
         const marker = new google.maps.Marker({
@@ -126,7 +154,7 @@ export default function AmenityMap({
         });
         marker.addListener('click', () => {
           if (!infoWindowRef.current) return;
-          infoWindowRef.current.setContent(buildInfoWindowHtml(place));
+          infoWindowRef.current.setContent(buildInfoWindowElement(place));
           infoWindowRef.current.open(map, marker);
         });
         markersRef.current.push(marker);
@@ -145,120 +173,41 @@ export default function AmenityMap({
     [clearMarkers, placeCommunityMarker, center]
   );
 
-  const searchLegacyNearby = useCallback(
-    async (map: google.maps.Map, categoryId: AmenityCategoryId) => {
-      const category = AMENITY_CATEGORIES.find((c) => c.id === categoryId);
-      if (!category?.legacyType) return;
-      const service = new google.maps.places.PlacesService(map);
-      const location = new google.maps.LatLng(center.lat, center.lng);
-      return new Promise<MapPlaceResult[]>((resolve) => {
-        service.nearbySearch(
-          {
-            location,
-            radius: SEARCH_RADIUS_M,
-            type: category.legacyType as string,
-          },
-          (results, status) => {
-            if (status !== google.maps.places.PlacesServiceStatus.OK || !results) {
-              resolve([]);
-              return;
-            }
-            const mapped = results
-              .filter((r) => r.geometry?.location && r.name)
-              .slice(0, 12)
-              .map((r, index) => ({
-                id: r.place_id ?? `legacy-${index}`,
-                name: r.name!,
-                address: r.vicinity ?? r.formatted_address ?? '',
-                rating: r.rating,
-                userRatingCount: r.user_ratings_total,
-                lat: r.geometry!.location!.lat(),
-                lng: r.geometry!.location!.lng(),
-              }));
-            resolve(mapped);
-          }
-        );
-      });
-    },
-    [center]
-  );
-
-  const searchNewNearby = useCallback(
-    async (categoryId: AmenityCategoryId): Promise<MapPlaceResult[]> => {
-      const category = AMENITY_CATEGORIES.find((c) => c.id === categoryId);
-      if (!category) return [];
-      try {
-        const placesLib = (await google.maps.importLibrary('places')) as google.maps.PlacesLibrary;
-        const { Place } = placesLib;
-        if (!Place?.searchNearby) {
-          return [];
-        }
-        const request = {
-          fields: ['id', 'displayName', 'location', 'formattedAddress', 'rating', 'userRatingCount'],
-          locationRestriction: {
-            center,
-            radius: SEARCH_RADIUS_M,
-          },
-          includedPrimaryTypes: category.includedPrimaryTypes,
-          maxResultCount: 12,
-        };
-        const { places } = await Place.searchNearby(request);
-        const mapped: MapPlaceResult[] = [];
-        places.forEach((place, index) => {
-          const loc = place.location;
-          if (!loc) return;
-          const displayName = place.displayName;
-          const name =
-            typeof displayName === 'string'
-              ? displayName
-              : (displayName as { text?: string } | undefined)?.text ?? 'Place';
-          mapped.push({
-            id: place.id ?? `new-${index}`,
-            name,
-            address: place.formattedAddress ?? '',
-            rating: place.rating ?? undefined,
-            userRatingCount: place.userRatingCount ?? undefined,
-            lat: loc.lat(),
-            lng: loc.lng(),
-          });
-        });
-        return mapped;
-      } catch {
-        return [];
-      }
-    },
-    [center]
-  );
-
   const loadPlacesForCategory = useCallback(
     async (map: google.maps.Map, categoryId: AmenityCategoryId) => {
       setStatusMessage(null);
-      let results = await searchNewNearby(categoryId);
-      if (results.length === 0) {
-        results = (await searchLegacyNearby(map, categoryId)) ?? [];
-      }
-      if (results.length === 0) {
-        setStatusMessage('No live results for this filter. See the curated list below.');
+      try {
+        const results = await searchCategory(center, categoryId);
+        if (results.length === 0) {
+          setStatusMessage('Featured places near Mayfield Estates are listed below.');
+          setLivePlaces([]);
+          renderMarkers(map, []);
+          return;
+        }
+        setLivePlaces(results);
+        renderMarkers(map, results);
+      } catch {
+        setStatusMessage('Featured places near Mayfield Estates are listed below.');
         setLivePlaces([]);
         renderMarkers(map, []);
-        return;
       }
-      setLivePlaces(results);
-      renderMarkers(map, results);
     },
-    [renderMarkers, searchLegacyNearby, searchNewNearby]
+    [center, renderMarkers]
   );
 
   const initMap = useCallback(async () => {
     if (!mapDivRef.current || mapInstanceRef.current) return;
+    if (mapsAuthFailed) {
+      enterFallback();
+      return;
+    }
     setApiStatus('loading');
     try {
-      const loader = new Loader({
-        apiKey,
-        version: 'weekly',
-        libraries: ['places'],
-      });
-      await loader.load();
+      await loadGoogleMaps(apiKey);
+      if (mapsAuthFailed) {
+        enterFallback();
+        return;
+      }
       const mapOptions: google.maps.MapOptions = {
         center,
         zoom: 13,
@@ -277,9 +226,17 @@ export default function AmenityMap({
       setApiStatus('ready');
       await loadPlacesForCategory(map, activeCategory);
     } catch {
-      setApiStatus('fallback');
+      enterFallback();
     }
-  }, [activeCategory, apiKey, center, loadPlacesForCategory, mapId, placeCommunityMarker]);
+  }, [activeCategory, apiKey, center, enterFallback, loadPlacesForCategory, mapId, placeCommunityMarker]);
+
+  useEffect(() => {
+    const onAuthFailure = () => {
+      enterFallback();
+    };
+    window.addEventListener('gmaps:auth-failure', onAuthFailure);
+    return () => window.removeEventListener('gmaps:auth-failure', onAuthFailure);
+  }, [enterFallback]);
 
   useEffect(() => {
     const node = containerRef.current;
@@ -299,13 +256,17 @@ export default function AmenityMap({
 
   useEffect(() => {
     if (!isInView || loaderStartedRef.current) return;
+    if (mapsAuthFailed) {
+      enterFallback();
+      return;
+    }
     if (!apiKey) {
-      setApiStatus('fallback');
+      enterFallback();
       return;
     }
     loaderStartedRef.current = true;
     void initMap();
-  }, [apiKey, initMap, isInView]);
+  }, [apiKey, enterFallback, initMap, isInView]);
 
   useEffect(() => {
     const map = mapInstanceRef.current;
@@ -314,7 +275,7 @@ export default function AmenityMap({
   }, [activeCategory, apiStatus, loadPlacesForCategory]);
 
   const curatedForCategory = getCuratedPlacesByCategory(activeCategory);
-  const showFallbackMap = apiStatus === 'fallback' || apiStatus === 'idle' && !apiKey;
+  const showFallbackMap = apiStatus === 'fallback';
 
   return (
     <div ref={containerRef} className={`space-y-4 ${className}`}>
@@ -387,7 +348,7 @@ export default function AmenityMap({
               <p className="font-semibold text-gray-900">{place.name}</p>
               {place.address && <p className="text-gray-600">{place.address}</p>}
               <a
-                href={getDirectionsUrl(place.name, place.address)}
+                href={place.mapsUri ?? getDirectionsUrl(place.name, place.address)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 inline-block text-blue-600 hover:underline"
@@ -407,26 +368,26 @@ function StaticCuratedList({
   places,
 }: {
   categoryId: AmenityCategoryId;
-  places: typeof CURATED_NEARBY_PLACES;
+  places: CuratedPlace[];
 }) {
   const label = AMENITY_CATEGORIES.find((c) => c.id === categoryId)?.label ?? 'Places';
   if (places.length === 0) {
     return (
       <p className="text-sm text-gray-600">
-        Curated {label.toLowerCase()} listings for this area are included in the sections below on our{' '}
+        Featured places near {MAYFIELD_COMMUNITY.name} for this category are on our{' '}
         <a href="/amenities" className="text-blue-600 hover:underline">Nearby Amenities</a> page.
       </p>
     );
   }
   return (
-    <ul className="grid gap-2 sm:grid-cols-2" aria-label={`Curated ${label} near ${MAYFIELD_COMMUNITY.name}`}>
+    <ul className="grid gap-2 sm:grid-cols-2" aria-label={`Featured ${label} near ${MAYFIELD_COMMUNITY.name}`}>
       {places.map((place) => (
-        <li key={`${place.name}-${place.address}`} className="rounded-lg border border-gray-200 bg-white p-3 text-sm">
+        <li key={`${place.name}-${place.sourceUrl}`} className="rounded-lg border border-gray-200 bg-white p-3 text-sm">
           <p className="font-semibold text-gray-900">{place.name}</p>
-          <p className="text-gray-600">{place.address}</p>
+          <p className="text-gray-600">{formatCuratedAddress(place)}</p>
           {place.note && <p className="mt-1 text-gray-500">{place.note}</p>}
           <a
-            href={getDirectionsUrl(place.name, place.address)}
+            href={getDirectionsUrl(place.name, formatCuratedAddress(place))}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-1 inline-block text-blue-600 hover:underline"

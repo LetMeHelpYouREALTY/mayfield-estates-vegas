@@ -1,12 +1,22 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import dynamic from 'next/dynamic';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CalendlyPopupLink } from '@/components/CalendlyPopupLink';
 import { CURATED_NEARBY_PLACES, MAYFIELD_COMMUNITY } from '@/config/community-amenities';
+
+function JsonLd({ data }: { data: Record<string, unknown> }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(data).replace(/</g, '\\u003c'),
+      }}
+    />
+  );
+}
 
 const AmenityMap = dynamic(() => import('@/components/amenities/AmenityMap'), {
   ssr: false,
@@ -51,7 +61,7 @@ const amenitiesFaq = [
   },
   {
     q: `What parks are close to ${MAYFIELD_COMMUNITY.name}?`,
-    a: `Centennial Hills Park on North Buffalo Drive and Floyd Lamb Park at Tule Springs are two large public parks northwest of the community, with trails, sports fields, and family amenities.`,
+    a: `Centennial Hills Park on North Buffalo Drive and Floyd Lamb Park at Tule Springs are two large public parks northwest of the community, with trails, sports fields, and recreation areas.`,
   },
   {
     q: `What schools serve ${MAYFIELD_COMMUNITY.name}?`,
@@ -104,9 +114,10 @@ export default function AmenitiesPage() {
         name: place.name,
         address: {
           '@type': 'PostalAddress',
-          streetAddress: place.address.split(',')[0]?.trim(),
-          addressLocality: MAYFIELD_COMMUNITY.city,
-          addressRegion: MAYFIELD_COMMUNITY.state,
+          streetAddress: place.streetAddress,
+          addressLocality: place.addressLocality,
+          addressRegion: place.addressRegion,
+          postalCode: place.postalCode,
           addressCountry: 'US',
         },
       },
@@ -166,11 +177,11 @@ export default function AmenitiesPage() {
 
   return (
     <>
-      <Script id="amenities-community-place" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(communityPlaceSchema) }} />
-      <Script id="amenities-item-list" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
-      <Script id="amenities-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Script id="amenities-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <Script id="amenities-agent" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(agentSchema) }} />
+      <JsonLd data={communityPlaceSchema} />
+      <JsonLd data={itemListSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={agentSchema} />
 
       <div className="min-h-screen bg-gray-50">
         <div className="fixed w-full z-10">
@@ -200,8 +211,8 @@ export default function AmenitiesPage() {
                 Interactive amenity map
               </h2>
               <p className="text-gray-600 mb-6 max-w-3xl">
-                Filter by category to see places near the center of {MAYFIELD_COMMUNITY.name}. Map data requires a
-                Google Maps API key in production; without it, you will still see a map embed and curated list.
+                Filter by category to see featured places near the center of {MAYFIELD_COMMUNITY.name}. The map shows
+                live nearby results when available, with a static overview and featured list as backup.
               </p>
               <AmenityMap compact={false} defaultCategory="grocery" />
             </div>
