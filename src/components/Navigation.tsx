@@ -64,6 +64,12 @@ export function Navigation() {
             >
               Neighborhoods
             </Link>
+            <Link 
+              href="/amenities" 
+              className={`flex items-center px-3 py-2 ${isActive('/amenities')} hover:text-blue-600`}
+            >
+              Amenities
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center">
@@ -136,6 +142,13 @@ export function Navigation() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Neighborhoods
+              </Link>
+              <Link
+                href="/amenities"
+                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/amenities') ? 'bg-blue-50 text-blue-600' : 'text-gray-900 hover:bg-gray-50'}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Amenities
               </Link>
               <CalendlyPopupLink
                 className="block w-full px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 text-center"

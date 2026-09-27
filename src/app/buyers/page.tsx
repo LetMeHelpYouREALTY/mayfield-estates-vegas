@@ -3,6 +3,7 @@ import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { CalendlyPopupLink } from '@/components/CalendlyPopupLink';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import NearbyAmenitiesSection from '@/components/amenities/NearbyAmenitiesSection';
 
 const buyersFaqItems = [
   {
@@ -125,6 +126,12 @@ export default function BuyersPage() {
               From search and showings to negotiation and closing, you get end-to-end support. For questions about the process, see our <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link> or <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page.
             </p>
           </section>
+
+          <NearbyAmenitiesSection
+            title="Explore amenities near Mayfield Estates"
+            description="Buying in Mayfield Estates? See grocery, schools, parks, and healthcare on the map—then read the full nearby amenities guide."
+            className="bg-gray-100 -mx-4 sm:-mx-6 lg:-mx-8 px-0"
+          />
 
           <section className="mb-10 pt-8 border-t border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions for Buyers</h2>

@@ -22,9 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/las-vegas-neighborhoods/henderson',
     '/las-vegas-neighborhoods/north-las-vegas',
     '/las-vegas-neighborhoods/mayfield-estates',
+    '/amenities',
   ].map((route) => {
     const isHome = route === '';
-    const isKeyPage = ['/about', '/contact', '/las-vegas-neighborhoods/mayfield-estates'].includes(route);
+    const isKeyPage = ['/about', '/contact', '/las-vegas-neighborhoods/mayfield-estates', '/amenities'].includes(route);
     const isNeighborhood = route.startsWith('/las-vegas-neighborhoods');
     const priority = isHome ? 1 : isKeyPage ? 0.9 : route === '/blog' ? 0.7 : isNeighborhood ? 0.85 : 0.8;
     return {

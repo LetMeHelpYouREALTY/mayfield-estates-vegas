@@ -99,6 +99,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/amenities" className="text-gray-300 hover:text-white transition-colors">
+                  Nearby Amenities
+                </Link>
+              </li>
+              <li>
                 <Link href="/value" className="text-gray-300 hover:text-white transition-colors">
                   Property Listings
                 </Link>
