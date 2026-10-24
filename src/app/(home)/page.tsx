@@ -106,7 +106,7 @@ export default function Home() {
                   <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>15+ Years Experience</span>
+                  <span>In Real Estate Since 1983</span>
                 </div>
                 <div className="flex items-center gap-2 text-blue-100">
                   <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@ export default function Home() {
                   and unparalleled privacy in one of the most sought-after neighborhoods in Nevada.
                 </p>
                 <p className="text-lg text-gray-600 mb-6">
-                  As your trusted real estate expert, Dr. Jan Duffy brings decades of experience 
+                  As your trusted real estate expert, Dr. Jan Duffy, in real estate since 1983, brings experience 
                   and a deep understanding of the Las Vegas luxury market to help you find or sell 
                   your perfect home in Mayfield Estates.
                 </p>
@@ -173,7 +173,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Expert Knowledge</h3>
                 <p className="text-gray-600">
-                  Decades of experience in Las Vegas luxury real estate market
+                  In real estate since 1983, with deep Las Vegas luxury market knowledge
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg text-center">

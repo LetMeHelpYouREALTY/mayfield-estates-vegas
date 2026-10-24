@@ -114,11 +114,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            <div className="mt-4">
-              <Link href="https://www.bhhsnv.com/agent/dr-jan-duffy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">
-                Berkshire Hathaway HomeServices
-              </Link>
-            </div>
           </div>
         </div>
 
@@ -127,7 +122,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Mayfield Estates Las Vegas. All rights reserved.
           </p>
           <p className="text-gray-500 text-xs mt-2">
-            REALTOR® | Licensed in Nevada
+            REALTOR® | Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC
           </p>
         </div>
       </div>

@@ -267,8 +267,8 @@ export default function CMAPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
-                <div className="text-gray-900 font-semibold">Years of Experience</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">Since 1983</div>
+                <div className="text-gray-900 font-semibold">In Real Estate</div>
                 <p className="mt-2 text-gray-600">Deep knowledge of the Las Vegas market</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -317,7 +317,7 @@ export default function CMAPage() {
               <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Who prepares my CMA?</h3>
                 <p className="text-gray-600">
-                  Your CMA is prepared by Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializing in Mayfield Estates and Las Vegas luxury real estate. Request one using the form on this page or <Link href="/contact" className="text-blue-600 hover:underline">book a free call</Link>. More about Dr. Jan on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page.
+                  Your CMA is prepared by Dr. Jan Duffy, REALTOR® in real estate since 1983, specializing in Mayfield Estates and Las Vegas luxury real estate. Request one using the form on this page or <Link href="/contact" className="text-blue-600 hover:underline">book a free call</Link>. More about Dr. Jan on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page.
                 </p>
               </div>
               <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">

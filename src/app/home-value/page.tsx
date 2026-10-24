@@ -169,7 +169,7 @@ export default function HomeValuePage() {
               </div>
               <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">Who is Dr. Jan Duffy?</dt>
-                <dd className="text-gray-700">Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializing in Mayfield Estates and Las Vegas luxury real estate. Learn more on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page and <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>.</dd>
+                <dd className="text-gray-700">Dr. Jan Duffy is a Top 1% Las Vegas REALTOR®, in real estate since 1983, specializing in Mayfield Estates and Las Vegas luxury real estate. Learn more on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page and <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>.</dd>
               </div>
               <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>

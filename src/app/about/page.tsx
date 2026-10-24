@@ -8,7 +8,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 const aboutFaqItems = [
   {
     q: 'Who is Dr. Jan Duffy?',
-    a: 'Dr. Jan Duffy is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializing in Mayfield Estates Las Vegas and luxury homes across the Las Vegas valley. She holds Nevada Real Estate License S.0197614.LLC and operates a veteran-owned and women-owned practice focused on buyer and seller representation, home valuations, and CMAs.',
+    a: 'Dr. Jan Duffy is a Top 1% Las Vegas REALTOR®, in real estate since 1983, specializing in Mayfield Estates Las Vegas and luxury homes across the Las Vegas valley. She operates a veteran-owned and women-owned practice focused on buyer and seller representation, home valuations, and CMAs.',
   },
   {
     q: 'What areas does Dr. Jan Duffy serve?',
@@ -20,7 +20,7 @@ const aboutFaqItems = [
   },
   {
     q: 'Is Dr. Jan Duffy licensed in Nevada?',
-    a: 'Yes. Dr. Jan Duffy holds Nevada Real Estate License S.0197614.LLC and works with Berkshire Hathaway HomeServices Nevada Properties. She specializes in luxury homes, gated communities, and Mayfield Estates Las Vegas.',
+    a: 'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR®, in real estate since 1983. She specializes in luxury homes, gated communities, and Mayfield Estates Las Vegas.',
   },
   {
     q: 'How do I contact Dr. Jan Duffy?',
@@ -37,7 +37,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Dr. Jan Duffy',
-    description: 'Mayfield Estates Las Vegas specialist. Berkshire Hathaway HomeServices Nevada Properties. Veteran-owned and women-owned real estate expertise for luxury homes and gated communities.',
+    description: 'Mayfield Estates Las Vegas specialist, in real estate since 1983. Veteran-owned and women-owned real estate expertise for luxury homes and gated communities.',
     image: 'https://www.mayfieldestateslasvegas.com/images/team/drjanduffywithgooldcircle.jpg',
     url: 'https://www.mayfieldestateslasvegas.com',
     telephone: '+1-702-500-1953',
@@ -91,13 +91,13 @@ export default function AboutPage() {
             </div>
             <div className="flex-1 space-y-4 text-gray-700">
               <p>
-                Dr. Jan Duffy is your dedicated Mayfield Estates Las Vegas specialist, bringing expertise in luxury homes and gated communities across the Las Vegas valley. As a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, she helps buyers and sellers navigate one of the most desirable markets in the Southwest.
+                Dr. Jan Duffy is your dedicated Mayfield Estates Las Vegas specialist, bringing expertise in luxury homes and gated communities across the Las Vegas valley. As a Top 1% Las Vegas REALTOR® in real estate since 1983, she helps buyers and sellers navigate one of the most desirable markets in the Southwest.
               </p>
               <p>
                 Veteran-owned and women-owned, the practice is built on integrity, local knowledge, and a commitment to client success—whether you&apos;re buying your first home, upgrading to a Mayfield Estates property, or selling with confidence.
               </p>
               <p>
-                <strong>License:</strong> Nevada Real Estate License S.0197614.LLC. Serving Las Vegas, Henderson, Summerlin, Green Valley, and Mayfield Estates. For more on buying or selling, see our <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> and <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> pages, or explore <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas neighborhoods</Link>.
+                Serving Las Vegas, Henderson, Summerlin, Green Valley, and Mayfield Estates. For more on buying or selling, see our <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> and <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> pages, or explore <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas neighborhoods</Link>.
               </p>
               <div className="flex flex-wrap gap-3 pt-4">
                 <CalendlyPopupLink className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
@@ -116,11 +116,11 @@ export default function AboutPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Who Is Dr. Jan Duffy?</h2>
             <p className="text-gray-700 mb-4">
-              Dr. Jan Duffy brings years of experience in Las Vegas luxury real estate, with a focus on Mayfield Estates and surrounding communities. Her practice emphasizes clear communication, market expertise, and a client-first approach. Whether you are looking to buy a luxury home in <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates</Link>, sell a property in Summerlin or Green Valley, or get a <Link href="/home-value" className="text-blue-600 hover:underline">home value report</Link>, she provides tailored guidance from first contact through closing.
+              Dr. Jan Duffy has been in real estate since 1983, with a focus on Las Vegas luxury real estate, with a focus on Mayfield Estates and surrounding communities. Her practice emphasizes clear communication, market expertise, and a client-first approach. Whether you are looking to buy a luxury home in <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates</Link>, sell a property in Summerlin or Green Valley, or get a <Link href="/home-value" className="text-blue-600 hover:underline">home value report</Link>, she provides tailored guidance from first contact through closing.
             </p>
             <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-2">Education & Credentials</h3>
             <p className="text-gray-700 mb-4">
-              Dr. Jan Duffy holds a doctorate and is a licensed REALTOR® in Nevada (License S.0197614.LLC). She is affiliated with Berkshire Hathaway HomeServices Nevada Properties and maintains professional standards required for luxury and estate representation in the Las Vegas market.
+              Dr. Jan Duffy holds a Ph.D. in Research and is a licensed REALTOR® in Nevada. She maintains professional standards required for luxury and estate representation in the Las Vegas market.
             </p>
             <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-2">Veteran-Owned & Women-Owned</h3>
             <p className="text-gray-700">
