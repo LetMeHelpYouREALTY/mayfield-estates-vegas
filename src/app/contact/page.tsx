@@ -18,14 +18,14 @@ export default function ContactPage() {
     "mainEntity": {
       "@type": "RealEstateAgent",
       "name": "Dr. Jan Duffy",
-      "telephone": "+1-702-500-1953",
+      "telephone": "+1-702-500-1955",
       "email": "DrDuffySells@MayfieldEstatesLasVegas.com",
       "areaServed": { "@type": "Place", "name": "Mayfield Estates, Las Vegas, NV" }
     }
   };
 
   const contactFaqItems = [
-    { q: 'How do I contact Dr. Jan Duffy?', a: 'You can call (702) 500-1953, email DrDuffySells@MayfieldEstatesLasVegas.com, or use the "Book your free 15‑min call" button on any page to schedule a call. Our Contact page also has an embedded scheduler for your convenience.' },
+    { q: 'How do I contact Dr. Jan Duffy?', a: 'You can call (702) 500-1955, email DrDuffySells@MayfieldEstatesLasVegas.com, or use the "Book your free 15‑min call" button on any page to schedule a call. Our Contact page also has an embedded scheduler for your convenience.' },
     { q: 'What should I expect when I call or schedule a call?', a: 'Dr. Jan Duffy or her team will discuss your goals—whether you\'re buying, selling, or exploring your home value in Las Vegas or Mayfield Estates. You can also get a quick home value on our Home Value page or request a CMA on our Request CMA page before reaching out.' },
     { q: 'Is there a fee for a consultation?', a: 'No. The initial 15-minute call and consultations are free. There are no upfront fees for home value reports or CMAs. See our FAQ page for more on fees and services.' },
     { q: 'What areas does Dr. Jan Duffy serve?', a: 'Dr. Jan Duffy serves Las Vegas, Mayfield Estates, Summerlin, Green Valley, Henderson, North Las Vegas, and the Southwest valley. Explore our Las Vegas Neighborhoods page for area details, or our About page for more on her practice.' },
@@ -46,7 +46,7 @@ export default function ContactPage() {
     "image": "https://www.mayfieldestateslasvegas.com/images/team/drjanduffywithgooldcircle.jpg",
     "description": "Mayfield Estates Las Vegas specialist. Veteran-owned and women-owned real estate business providing expert guidance for luxury homes and estates in this premier gated community.",
     "url": "https://www.mayfieldestateslasvegas.com",
-    "telephone": "+1-702-500-1953",
+    "telephone": "+1-702-500-1955",
     "email": "DrDuffySells@MayfieldEstatesLasVegas.com",
     "address": {
       "@type": "PostalAddress",
@@ -161,7 +161,7 @@ export default function ContactPage() {
                 Your Trusted Las Vegas Real Estate Expert
               </p>
               <p className="text-blue-200 max-w-2xl mx-auto">
-                Contact Dr. Jan Duffy for Mayfield Estates and Las Vegas luxury real estate. Schedule a free consultation, get a home value report, or tour luxury properties. Call (702) 500-1953 or book online. Veteran-owned and women-owned. Responds within 24 hours.
+                Contact Dr. Jan Duffy for Mayfield Estates and Las Vegas luxury real estate. Schedule a free consultation, get a home value report, or tour luxury properties. Call (702) 500-1955 or book online. Veteran-owned and women-owned. Responds within 24 hours.
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
             </p>
             <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-2">Phone &amp; Email</h3>
             <p className="text-gray-700 mb-4">
-              Call (702) 500-1953 or email DrDuffySells@MayfieldEstatesLasVegas.com. Dr. Jan Duffy responds within 24 hours. For quick tools, use our <Link href="/home-value" className="text-blue-600 hover:underline">Home Value</Link> or <Link href="/value" className="text-blue-600 hover:underline">Property Listings</Link> pages.
+              Call (702) 500-1955 or email DrDuffySells@MayfieldEstatesLasVegas.com. Dr. Jan Duffy responds within 24 hours. For quick tools, use our <Link href="/home-value" className="text-blue-600 hover:underline">Home Value</Link> or <Link href="/value" className="text-blue-600 hover:underline">Property Listings</Link> pages.
             </p>
             <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-2">Schedule a Free Call</h3>
             <p className="text-gray-700 mb-4">
@@ -218,7 +218,7 @@ export default function ContactPage() {
                     <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <a href="tel:+17025001953" className="text-blue-600 hover:text-blue-800 font-medium">(702) 500-1953</a>
+                    <a href="tel:+17025001955" className="text-blue-600 hover:text-blue-800 font-medium">(702) 500-1955</a>
                   </div>
                   <div className="flex items-center text-gray-600">
                     <svg className="w-5 h-5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

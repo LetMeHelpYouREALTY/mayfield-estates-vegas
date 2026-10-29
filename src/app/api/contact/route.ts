@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     if (!lead) {
       return NextResponse.json(
-        { error: 'Unable to submit your request. Please try again or call (702) 500-1953.' },
+        { error: 'Unable to submit your request. Please try again or call (702) 500-1955.' },
         { status: 500 }
       );
     }
@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'Something went wrong. Please try again or call (702) 500-1953.' },
+      { error: 'Something went wrong. Please try again or call (702) 500-1955.' },
       { status: 500 }
     );
   }
