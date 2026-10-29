@@ -100,7 +100,7 @@ export default async function BlogPage() {
               <dl className="space-y-4">
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Who writes the Las Vegas real estate blog?</dt>
-                  <dd className="text-gray-700">The blog is written and curated by Dr. Jan Duffy, REALTOR® in real estate since 1983, specializing in Mayfield Estates and Las Vegas luxury real estate. Learn more on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page.</dd>
+                  <dd className="text-gray-700">The blog is written and curated by Dr. Jan Duffy, REALTOR® licensed since 2008 · 35 years in Las Vegas, specializing in Mayfield Estates and Las Vegas luxury real estate. Learn more on our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">What topics does the blog cover?</dt>

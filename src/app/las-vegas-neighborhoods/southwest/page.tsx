@@ -227,7 +227,7 @@ export default function SouthwestPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Who can help me buy or sell in Southwest Las Vegas?</dt>
-                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Las Vegas area real estate including Southwest Las Vegas. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages.</dd>
+                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® licensed since 2008 · 35 years in Las Vegas, specializes in Las Vegas area real estate including Southwest Las Vegas. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
