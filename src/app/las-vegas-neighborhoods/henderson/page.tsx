@@ -69,7 +69,7 @@ export default function HendersonPage() {
       { "@type": "Question", "name": "Where can I check crime data for Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Henderson Police publish a 90-day crime map online, at cityofhenderson.com." } },
       { "@type": "Question", "name": "How do I get a home value in Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Use our Home Value or What's Your Home Worth? tools for an estimate. For a custom CMA, request a CMA or contact Dr. Jan Duffy." } },
       { "@type": "Question", "name": "Who can help me buy or sell in Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas area real estate including Henderson." } },
-      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
+      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1955, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
     ],
   };
 
@@ -218,7 +218,7 @@ export default function HendersonPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                  <dd className="text-gray-700">Call (702) 500-1953, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                  <dd className="text-gray-700">Call (702) 500-1955, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
                 </div>
               </dl>
             </div>

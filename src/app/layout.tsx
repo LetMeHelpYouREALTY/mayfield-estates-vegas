@@ -4,6 +4,7 @@ import './globals.css';
 import Script from 'next/script';
 import Analytics from '@/components/Analytics';
 import { CalendlyGlobal } from '@/components/CalendlyGlobal';
+import WidgetTracker from './widget-tracker'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -50,7 +51,7 @@ export default function RootLayout({
     "name": "Mayfield Estates Las Vegas Real Estate",
     "image": `${siteUrl}/images/logos/logo.png`,
     "url": siteUrl,
-    "telephone": "+1-702-500-1953",
+    "telephone": "+1-702-500-1955",
     "email": "DrDuffySells@MayfieldEstatesLasVegas.com",
     "address": {
       "@type": "PostalAddress",
@@ -136,6 +137,7 @@ export default function RootLayout({
         <Analytics />
         {children}
         <CalendlyGlobal />
+        <WidgetTracker />
       </body>
     </html>
   );

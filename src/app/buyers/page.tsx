@@ -27,7 +27,7 @@ const buyersFaqItems = [
   },
   {
     q: 'How can I schedule a showing or talk to Dr. Jan Duffy?',
-    a: 'Use the "Book your free 15‑min call" button on any page, call (702) 500-1953, or visit our Contact page. Dr. Jan Duffy will help you with showings, search strategy, and next steps for buying in Las Vegas or Mayfield Estates.',
+    a: 'Use the "Book your free 15‑min call" button on any page, call (702) 500-1955, or visit our Contact page. Dr. Jan Duffy will help you with showings, search strategy, and next steps for buying in Las Vegas or Mayfield Estates.',
   },
 ];
 
@@ -147,8 +147,8 @@ export default function BuyersPage() {
               <CalendlyPopupLink className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
                 Book your free 15‑min call
               </CalendlyPopupLink>
-              <a href="tel:+17025001953" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
-                Call (702) 500-1953
+              <a href="tel:+17025001955" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
+                Call (702) 500-1955
               </a>
               <Link href="/contact" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
                 Contact

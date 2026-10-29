@@ -27,7 +27,7 @@ const blogFaqSchema = {
     { '@type': 'Question', name: 'How often is the blog updated?', acceptedAnswer: { '@type': 'Answer', text: 'New articles and market updates are added regularly. Subscribe to our newsletter for the latest posts and market insights.' } },
     { '@type': 'Question', name: 'Can I get a home value or CMA from the blog?', acceptedAnswer: { '@type': 'Answer', text: 'For a home value estimate, use our Home Value or What\'s Your Home Worth pages. For a custom CMA, request one on our Request CMA page or contact Dr. Jan Duffy.' } },
     { '@type': 'Question', name: 'Where can I find neighborhood guides?', acceptedAnswer: { '@type': 'Answer', text: 'Neighborhood guides are on our Las Vegas Neighborhoods page, with detailed pages for Mayfield Estates, Summerlin, Green Valley, Henderson, North Las Vegas, and Southwest Las Vegas.' } },
-    { '@type': 'Question', name: 'How do I contact Dr. Jan Duffy?', acceptedAnswer: { '@type': 'Answer', text: 'Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours.' } },
+    { '@type': 'Question', name: 'How do I contact Dr. Jan Duffy?', acceptedAnswer: { '@type': 'Answer', text: 'Call (702) 500-1955, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours.' } },
   ],
 };
 
@@ -120,7 +120,7 @@ export default async function BlogPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                  <dd className="text-gray-700">Call (702) 500-1953, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                  <dd className="text-gray-700">Call (702) 500-1955, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
                 </div>
               </dl>
             </section>

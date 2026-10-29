@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     q: 'Is there a fee for a home value report or CMA? How do I schedule a call?',
-    a: 'Our online home value tool is free. A detailed CMA is also provided at no obligation when you’re considering selling. There are no upfront fees. To schedule a call, use the "Book your free 15‑min call" button on any page, call (702) 500-1953, or visit our Contact page.',
+    a: 'Our online home value tool is free. A detailed CMA is also provided at no obligation when you’re considering selling. There are no upfront fees. To schedule a call, use the "Book your free 15‑min call" button on any page, call (702) 500-1955, or visit our Contact page.',
   },
 ];
 

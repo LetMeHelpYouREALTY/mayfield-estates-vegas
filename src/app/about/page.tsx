@@ -24,7 +24,7 @@ const aboutFaqItems = [
   },
   {
     q: 'How do I contact Dr. Jan Duffy?',
-    a: 'You can call (702) 500-1953, email DrDuffySells@MayfieldEstatesLasVegas.com, or use the "Book your free 15‑min call" button on any page. Our Contact page also has a scheduling tool and full contact details.',
+    a: 'You can call (702) 500-1955, email DrDuffySells@MayfieldEstatesLasVegas.com, or use the "Book your free 15‑min call" button on any page. Our Contact page also has a scheduling tool and full contact details.',
   },
   {
     q: 'What services does Dr. Jan Duffy offer?',
@@ -40,7 +40,7 @@ export default function AboutPage() {
     description: 'Mayfield Estates Las Vegas specialist, in real estate since 1983. Veteran-owned and women-owned real estate expertise for luxury homes and gated communities.',
     image: 'https://www.mayfieldestateslasvegas.com/images/team/drjanduffywithgooldcircle.jpg',
     url: 'https://www.mayfieldestateslasvegas.com',
-    telephone: '+1-702-500-1953',
+    telephone: '+1-702-500-1955',
     email: 'DrDuffySells@MayfieldEstatesLasVegas.com',
     address: {
       '@type': 'PostalAddress',
@@ -103,8 +103,8 @@ export default function AboutPage() {
                 <CalendlyPopupLink className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
                   Book your free 15‑min call
                 </CalendlyPopupLink>
-                <a href="tel:+17025001953" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
-                  Call (702) 500-1953
+                <a href="tel:+17025001955" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
+                  Call (702) 500-1955
                 </a>
                 <Link href="/contact" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
                   Contact

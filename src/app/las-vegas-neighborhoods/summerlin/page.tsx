@@ -69,7 +69,7 @@ export default function SummerlinPage() {
       { "@type": "Question", "name": "Which schools serve Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Summerlin is served by Clark County School District schools plus several private schools. Check CCSD and state data for current ratings." } },
       { "@type": "Question", "name": "How do I get a home value in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Use our Home Value or What's Your Home Worth? tools for an estimate. For a custom CMA in Summerlin, request a CMA or contact Dr. Jan Duffy." } },
       { "@type": "Question", "name": "Who can help me buy or sell in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas luxury real estate including Summerlin. Visit our Contact or About page." } },
-      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
+      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1955, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
     ],
   };
 
@@ -227,11 +227,11 @@ export default function SummerlinPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Who can help me buy or sell in Summerlin?</dt>
-                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Las Vegas luxury real estate including Summerlin. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1953.</dd>
+                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Las Vegas luxury real estate including Summerlin. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1955.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                  <dd className="text-gray-700">Call (702) 500-1953, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                  <dd className="text-gray-700">Call (702) 500-1955, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
                 </div>
               </dl>
             </div>

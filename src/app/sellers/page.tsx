@@ -27,7 +27,7 @@ const sellersFaqItems = [
   },
   {
     q: 'How do I list my home with Dr. Jan Duffy?',
-    a: 'Start by getting your home value on our Home Value page or requesting a CMA on our Request CMA page. Then book a free 15-minute call or call (702) 500-1953 to discuss listing strategy, marketing, and next steps. You can also use our Contact page to reach out.',
+    a: 'Start by getting your home value on our Home Value page or requesting a CMA on our Request CMA page. Then book a free 15-minute call or call (702) 500-1955 to discuss listing strategy, marketing, and next steps. You can also use our Contact page to reach out.',
   },
 ];
 
@@ -147,8 +147,8 @@ export default function SellersPage() {
               <CalendlyPopupLink className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
                 Book your free 15‑min call
               </CalendlyPopupLink>
-              <a href="tel:+17025001953" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
-                Call (702) 500-1953
+              <a href="tel:+17025001955" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
+                Call (702) 500-1955
               </a>
               <Link href="/contact" className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors">
                 Contact

@@ -173,7 +173,7 @@ export default function HomeValuePage() {
               </div>
               <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                <dd className="text-gray-700">Call (702) 500-1953, use the &quot;Book your free 15‑min call&quot; button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                <dd className="text-gray-700">Call (702) 500-1955, use the &quot;Book your free 15‑min call&quot; button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
               </div>
             </dl>
           </section>

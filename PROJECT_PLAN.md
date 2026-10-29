@@ -19,9 +19,9 @@
 - **Schema Markups**: Consistent across all pages
 
 #### 2. Contact Information Audit & Updates
-- **Phone Number**: Standardized to (702) 500-1953 across all pages
-  - Schema format: `+1-702-500-1953`
-  - Display format: `(702) 500-1953`
+- **Phone Number**: Standardized to (702) 500-1955 across all pages
+  - Schema format: `+1-702-500-1955`
+  - Display format: `(702) 500-1955`
 - **Email Address**: Updated to DrDuffySells@MayfieldEstatesLasVegas.com
 - **Name**: Consistent "Dr. Jan Duffy" across all schemas
 - **Address**: Standardized "Las Vegas, NV" formatting
@@ -175,7 +175,7 @@
 ## 📞 Contact Information (Verified Uniform)
 
 **Name**: Dr. Jan Duffy  
-**Phone**: (702) 500-1953 (display) / +1-702-500-1953 (schema)  
+**Phone**: (702) 500-1955 (display) / +1-702-500-1955 (schema)  
 **Email**: DrDuffySells@MayfieldEstatesLasVegas.com  
 **Address**: Las Vegas, NV  
 **Business**: Mayfield Estates Las Vegas Real Estate  
