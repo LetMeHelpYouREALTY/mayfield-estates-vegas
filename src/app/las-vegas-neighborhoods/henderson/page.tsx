@@ -8,10 +8,10 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Henderson Nevada | Safe Family Community | Real Estate Guide',
-  description: 'Explore Henderson, Nevada second-largest city. Learn about safe neighborhoods, award-winning parks, top schools, and family-friendly living. Expert real estate insights from Dr. Jan Duffy.',
+  description: 'Explore Henderson, Nevada second-largest city. Learn about neighborhoods, award-winning parks, nearby public schools, living. Expert real estate insights from Dr. Jan Duffy.',
   openGraph: {
     title: 'Henderson Nevada | Safe Family Community',
-    description: 'Discover Henderson, one of the safest cities in Nevada with award-winning parks and excellent schools.',
+    description: 'Discover Henderson, Nevada\'s second-largest city, with parks, trails, and nearby schools.',
   },
 };
 
@@ -20,7 +20,7 @@ export default function HendersonPage() {
     "@context": "https://schema.org",
     "@type": "Place",
     "name": "Henderson",
-    "description": "Safe, family-friendly city in Nevada",
+    "description": "Safe, city in Nevada",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Henderson",
@@ -64,12 +64,12 @@ export default function HendersonPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is Henderson known for?", "acceptedAnswer": { "@type": "Answer", "text": "Henderson is Nevada's second-largest city, known for safety, award-winning parks, Lake Las Vegas, and family-friendly living." } },
+      { "@type": "Question", "name": "What is Henderson known for?", "acceptedAnswer": { "@type": "Answer", "text": "Henderson is Nevada's second-largest city, known for its parks, master-planned communities, and Lake Las Vegas." } },
       { "@type": "Question", "name": "How much do homes cost in Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Average home prices in Henderson are around $475K+. For a custom CMA, request one on our CMA page or contact Dr. Jan Duffy." } },
-      { "@type": "Question", "name": "Is Henderson safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Henderson is consistently ranked as one of the safest cities in Nevada and has received accolades for family-friendly living." } },
+      { "@type": "Question", "name": "Where can I check crime data for Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Henderson Police publish a 90-day crime map online, at cityofhenderson.com." } },
       { "@type": "Question", "name": "How do I get a home value in Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Use our Home Value or What's Your Home Worth? tools for an estimate. For a custom CMA, request a CMA or contact Dr. Jan Duffy." } },
       { "@type": "Question", "name": "Who can help me buy or sell in Henderson?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas area real estate including Henderson." } },
-      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
+      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1955, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
     ],
   };
 
@@ -115,11 +115,11 @@ export default function HendersonPage() {
                   </h2>
                   <p className="text-lg text-gray-700 mb-4">
                     Henderson is Nevada second-largest city with over 320,000 residents and is consistently 
-                    ranked as one of the safest cities in the state. The city has received numerous accolades 
-                    including &quot;Best City to Raise a Family&quot; and &quot;Safest City in Nevada&quot; from various publications.
+                    the second-largest city in the state. The city has received numerous accolades 
+                    for its parks and planning from various publications.
                   </p>
                   <p className="text-lg text-gray-700 mb-4">
-                    Henderson offers award-winning parks and recreation facilities, excellent schools, and 
+                    Henderson offers award-winning parks and recreation facilities, nearby public schools, and 
                     a strong sense of community. The city is home to several master-planned communities 
                     including Green Valley, MacDonald Ranch, and Anthem Country Club.
                   </p>
@@ -176,10 +176,10 @@ export default function HendersonPage() {
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  { title: 'Top Safety Rating', desc: 'Consistently ranked as one of Nevada safest cities' },
+                  { title: 'Crime Data Online', desc: 'Henderson Police publish a searchable crime map' },
                   { title: 'Award-Winning Parks', desc: '50+ parks including world-class facilities' },
                   { title: 'Lake Las Vegas', desc: 'Waterfront living and luxury amenities' },
-                  { title: 'Excellent Schools', desc: 'Strong educational system and top-rated schools' },
+                  { title: 'Nearby Public Schools', desc: 'Strong educational system and nearby public schools' },
                   { title: 'Corporate Headquarters', desc: 'Thriving business community' },
                   { title: 'Strong Job Market', desc: 'Growing economy and employment opportunities' },
                 ].map((feature, idx) => (
@@ -198,7 +198,7 @@ export default function HendersonPage() {
               <dl className="space-y-4 max-w-3xl mx-auto">
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">What is Henderson known for?</dt>
-                  <dd className="text-gray-700">Henderson is Nevada&apos;s second-largest city, known for safety, award-winning parks, Lake Las Vegas, and family-friendly living. See our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page.</dd>
+                  <dd className="text-gray-700">Henderson is Nevada&apos;s second-largest city, known for its parks, master-planned communities, and Lake Las Vegas. See our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How much do homes cost in Henderson?</dt>
@@ -206,7 +206,7 @@ export default function HendersonPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Is Henderson safe?</dt>
-                  <dd className="text-gray-700">Yes. Henderson is consistently ranked as one of the safest cities in Nevada and has received accolades for family-friendly living.</dd>
+                  <dd className="text-gray-700">Henderson Police publish a 90-day crime map online.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I get a home value in Henderson?</dt>
@@ -218,7 +218,7 @@ export default function HendersonPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                  <dd className="text-gray-700">Call (702) 500-1953, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                  <dd className="text-gray-700">Call (702) 500-1955, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
                 </div>
               </dl>
             </div>
@@ -231,7 +231,7 @@ export default function HendersonPage() {
                 Find Your Home in Henderson
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Let me help you explore Henderson homes and find the perfect safe, family-friendly property.
+                Let me help you explore Henderson homes and find the perfect safe, property.
               </p>
               <Link
                 href="/contact"

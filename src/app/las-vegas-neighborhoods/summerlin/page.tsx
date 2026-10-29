@@ -8,7 +8,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Summerlin Las Vegas | Luxury Master-Planned Community | Real Estate Guide',
-  description: 'Complete guide to Summerlin, Las Vegas premier master-planned community. Learn about luxury homes, top schools, Red Rock Canyon access, and world-class amenities. Expert real estate insights from Dr. Jan Duffy.',
+  description: 'Complete guide to Summerlin, Las Vegas premier master-planned community. Learn about luxury homes, nearby public schools, Red Rock Canyon access, and world-class amenities. Expert real estate insights from Dr. Jan Duffy.',
   openGraph: {
     title: 'Summerlin Las Vegas | Luxury Master-Planned Community',
     description: 'Discover Summerlin, Las Vegas premier master-planned community with world-class amenities and luxury homes.',
@@ -64,12 +64,12 @@ export default function SummerlinPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is Summerlin known for?", "acceptedAnswer": { "@type": "Answer", "text": "Summerlin is Las Vegas premier master-planned community, known for Red Rock Canyon access, 150+ parks and trails, top schools, golf courses, and luxury homes." } },
+      { "@type": "Question", "name": "What is Summerlin known for?", "acceptedAnswer": { "@type": "Answer", "text": "Summerlin is Las Vegas premier master-planned community, known for Red Rock Canyon access, 150+ parks and trails, nearby public schools, golf courses, and luxury homes." } },
       { "@type": "Question", "name": "How much do homes cost in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Average home prices in Summerlin are around $1.33M with a median near $842K. Inventory and pricing vary by village; contact Dr. Jan Duffy for a current CMA." } },
-      { "@type": "Question", "name": "Are there good schools in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Summerlin is served by top-rated Clark County School District schools and is a popular choice for families." } },
+      { "@type": "Question", "name": "Which schools serve Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Summerlin is served by Clark County School District schools plus several private schools. Check CCSD and state data for current ratings." } },
       { "@type": "Question", "name": "How do I get a home value in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Use our Home Value or What's Your Home Worth? tools for an estimate. For a custom CMA in Summerlin, request a CMA or contact Dr. Jan Duffy." } },
       { "@type": "Question", "name": "Who can help me buy or sell in Summerlin?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas luxury real estate including Summerlin. Visit our Contact or About page." } },
-      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
+      { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1955, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
     ],
   };
 
@@ -211,14 +211,14 @@ export default function SummerlinPage() {
               <dl className="space-y-4 max-w-3xl mx-auto">
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">What is Summerlin known for?</dt>
-                  <dd className="text-gray-700">Summerlin is Las Vegas premier master-planned community, known for Red Rock Canyon access, 150+ parks and trails, top schools, golf courses, and luxury homes. Explore our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page for more areas.</dd>
+                  <dd className="text-gray-700">Summerlin is Las Vegas premier master-planned community, known for Red Rock Canyon access, 150+ parks and trails, nearby public schools, golf courses, and luxury homes. Explore our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page for more areas.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How much do homes cost in Summerlin?</dt>
                   <dd className="text-gray-700">Average home prices in Summerlin are around $1.33M with a median near $842K. Inventory and pricing vary by village. For a custom <Link href="/cma" className="text-blue-600 hover:underline">CMA</Link> or <Link href="/home-value" className="text-blue-600 hover:underline">home value estimate</Link>, contact Dr. Jan Duffy.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
-                  <dt className="text-lg font-semibold text-gray-900 mb-2">Are there good schools in Summerlin?</dt>
+                  <dt className="text-lg font-semibold text-gray-900 mb-2">Are there nearby public schools in Summerlin?</dt>
                   <dd className="text-gray-700">Yes. Summerlin is served by top-rated Clark County School District schools and is a popular choice for families. See our <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> page for more on finding a family home.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
@@ -227,11 +227,11 @@ export default function SummerlinPage() {
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Who can help me buy or sell in Summerlin?</dt>
-                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Las Vegas luxury real estate including Summerlin. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1953.</dd>
+                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Las Vegas luxury real estate including Summerlin. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1955.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy?</dt>
-                  <dd className="text-gray-700">Call (702) 500-1953, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                  <dd className="text-gray-700">Call (702) 500-1955, use the Book a Free Call button on any page, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
                 </div>
               </dl>
             </div>

@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="space-y-2">
               <p className="text-gray-300">Las Vegas, NV</p>
               <p className="text-gray-300">
-                Phone: <a href="tel:+17025001953" className="text-white hover:text-blue-300 underline">(702) 500-1953</a>
+                Phone: <a href="tel:+17025001955" className="text-white hover:text-blue-300 underline">(702) 500-1955</a>
               </p>
               <p className="text-gray-300">
                 Email: <a href="mailto:DrDuffySells@MayfieldEstatesLasVegas.com" className="text-white hover:text-blue-300 underline break-all">DrDuffySells@MayfieldEstatesLasVegas.com</a>

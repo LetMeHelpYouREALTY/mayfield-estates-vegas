@@ -16,7 +16,7 @@ const homeFaqSchema = {
     { '@type': 'Question', name: 'How do I buy a home in Mayfield Estates or Las Vegas?', acceptedAnswer: { '@type': 'Answer', text: 'Start by exploring our Las Vegas Neighborhoods page and Property Listings, then book a free 15-minute call. See our Buyers page for the full process.' } },
     { '@type': 'Question', name: 'How do I sell my home in Las Vegas or Mayfield Estates?', acceptedAnswer: { '@type': 'Answer', text: 'Get your home value and request a CMA, then book a call to discuss listing strategy. See our Sellers page for more.' } },
     { '@type': 'Question', name: 'What areas does Dr. Jan Duffy serve?', acceptedAnswer: { '@type': 'Answer', text: 'Dr. Jan Duffy serves Las Vegas, Mayfield Estates, Summerlin, Green Valley, Henderson, North Las Vegas, and the Southwest valley. Explore our Las Vegas Neighborhoods page or our About page for details.' } },
-    { '@type': 'Question', name: 'How do I contact Dr. Jan Duffy or schedule a call?', acceptedAnswer: { '@type': 'Answer', text: 'Use the Book your free 15 min call button on any page, call (702) 500-1953, or visit our Contact page. Dr. Jan Duffy responds within 24 hours.' } },
+    { '@type': 'Question', name: 'How do I contact Dr. Jan Duffy or schedule a call?', acceptedAnswer: { '@type': 'Answer', text: 'Use the Book your free 15 min call button on any page, call (702) 500-1955, or visit our Contact page. Dr. Jan Duffy responds within 24 hours.' } },
   ],
 };
 
@@ -195,7 +195,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Mayfield Estates Specialist</h3>
                 <p className="text-gray-600">
-                  Deep understanding of this exclusive community
+                  Deep understanding of this community
                 </p>
               </div>
             </div>
@@ -239,7 +239,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Summerlin</h3>
                   <p className="text-gray-600 mb-4">Master-planned community with world-class amenities</p>
                   <ul className="text-sm text-gray-500 space-y-1">
-                    <li>✓ Top Schools</li>
+                    <li>✓ Nearby Public Schools</li>
                     <li>✓ Golf Courses</li>
                     <li>✓ Parks & Trails</li>
                   </ul>
@@ -248,10 +248,10 @@ export default function Home() {
               <Link href="/las-vegas-neighborhoods/green-valley" className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Green Valley</h3>
-                  <p className="text-gray-600 mb-4">Established community with excellent schools</p>
+                  <p className="text-gray-600 mb-4">Older community with nearby schools</p>
                   <ul className="text-sm text-gray-500 space-y-1">
-                    <li>✓ Family Friendly</li>
-                    <li>✓ Great Schools</li>
+                    <li>✓ Parks Nearby</li>
+                    <li>✓ Nearby public schools</li>
                     <li>✓ Affordable Luxury</li>
                   </ul>
                 </div>
@@ -312,10 +312,10 @@ export default function Home() {
                 </svg>
               </Link>
               <a
-                href="tel:+17025001953"
+                href="tel:+17025001955"
                 className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all"
               >
-                Call (702) 500-1953
+                Call (702) 500-1955
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -380,7 +380,7 @@ export default function Home() {
               </div>
               <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy or schedule a call?</dt>
-                <dd className="text-gray-700">Use the &quot;Book your free 15‑min call&quot; button on any page, call (702) 500-1953, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
+                <dd className="text-gray-700">Use the &quot;Book your free 15‑min call&quot; button on any page, call (702) 500-1955, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
               </div>
             </dl>
           </div>

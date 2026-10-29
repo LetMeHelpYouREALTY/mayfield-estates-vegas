@@ -136,7 +136,7 @@ export default function MayfieldEstatesPage() {
                     About Mayfield Estates
                   </h2>
                   <p className="text-lg text-gray-700 mb-4">
-                    <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 font-semibold">Mayfield Estates</Link> is a well-established neighborhood in <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:text-blue-800">Las Vegas, Nevada</Link>, featuring midsize 
+                    <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 font-semibold">Mayfield Estates</Link> is an older neighborhood in <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:text-blue-800">Las Vegas, Nevada</Link>, featuring midsize 
                     homes that are very reasonably priced. This community dates back to 2004, with construction 
                     completed around that time, offering a mature, settled atmosphere in one of Las Vegas most 
                     desirable areas.
@@ -201,7 +201,7 @@ export default function MayfieldEstatesPage() {
               <div className="grid md:grid-cols-3 gap-8">
                 {[
                   { title: 'Reasonably Priced', desc: 'Great value with homes from $560K-$660K' },
-                  { title: 'Well-Established', desc: 'Mature community dating back to 2004' },
+                  { title: 'Well-Established', desc: 'Older community dating back to 2004' },
                   { title: 'Diverse Housing', desc: 'Condos, townhomes, and single-family homes' },
                   { title: 'Midsize Homes', desc: '2,733 to 3,723 sq ft homes with 3-6 bedrooms' },
                   { title: 'Affordable HOA', desc: 'Association fees from $25-$75/month' },
@@ -285,7 +285,7 @@ export default function MayfieldEstatesPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Where is Mayfield Estates located?</h3>
                   <p className="text-gray-600">
-                    Mayfield Estates is conveniently located in Las Vegas, Nevada. This well-established community offers easy access 
+                    Mayfield Estates is conveniently located in Las Vegas, Nevada. This older community offers easy access 
                     to major shopping, dining, entertainment, and employment centers throughout the Las Vegas metropolitan area.
                   </p>
                 </div>

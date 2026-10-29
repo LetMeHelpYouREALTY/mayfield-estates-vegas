@@ -38,7 +38,7 @@ export const neighborhoodData: Record<string, NeighborhoodInfo> = {
     keyPoints: [
       "Master-planned excellence",
       "World-class amenities",
-      "Top-rated schools"
+      "Nearby public schools"
     ],
     challenges: [
       "HOA restrictions",
@@ -50,7 +50,7 @@ export const neighborhoodData: Record<string, NeighborhoodInfo> = {
   charlestonHeights: {
     name: "Charleston Heights",
     path: "M400,100 L600,100 L600,300 L400,300 Z",
-    overview: "Established neighborhood offering character homes with no HOA restrictions",
+    overview: "Older neighborhood offering character homes with no HOA restrictions",
     medianPrice: 475000,
     priceChange: 8.5,
     daysOnMarket: 12,
@@ -65,7 +65,7 @@ export const neighborhoodData: Record<string, NeighborhoodInfo> = {
     keyPoints: [
       "No HOA restrictions",
       "Central location",
-      "Established neighborhood"
+      "Older neighborhood"
     ],
     challenges: [
       "Older inventory",
@@ -91,8 +91,8 @@ export const neighborhoodData: Record<string, NeighborhoodInfo> = {
     lifestyles: ["family", "luxury"],
     subCommunities: ["Green Valley Ranch", "Green Valley South"],
     keyPoints: [
-      "Established community",
-      "Excellent schools",
+      "Older community",
+      "Nearby public schools",
       "Strong amenities"
     ],
     challenges: [
