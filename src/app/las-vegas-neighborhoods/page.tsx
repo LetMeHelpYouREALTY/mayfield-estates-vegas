@@ -364,7 +364,7 @@ export default function LasVegasNeighborhoodsPage() {
                 </div>
                 <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Who can help me buy or sell in these neighborhoods?</dt>
-                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® in real estate since 1983, specializes in Mayfield Estates and Las Vegas luxury real estate. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1955.</dd>
+                  <dd className="text-gray-700">Dr. Jan Duffy, REALTOR® licensed since 2008 · 35 years in Las Vegas, specializes in Mayfield Estates and Las Vegas luxury real estate. Visit our <Link href="/about" className="text-blue-600 hover:underline">About</Link> and <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> pages, or call (702) 500-1955.</dd>
                 </div>
                 <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">Are there affordable areas in Las Vegas?</dt>
