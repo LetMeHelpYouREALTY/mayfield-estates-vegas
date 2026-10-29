@@ -4,7 +4,6 @@ import './globals.css';
 import Script from 'next/script';
 import Analytics from '@/components/Analytics';
 import { CalendlyGlobal } from '@/components/CalendlyGlobal';
-import WidgetTracker from './widget-tracker'
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -137,7 +136,6 @@ export default function RootLayout({
         <Analytics />
         {children}
         <CalendlyGlobal />
-        <WidgetTracker />
       </body>
     </html>
   );
