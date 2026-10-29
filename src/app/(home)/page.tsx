@@ -195,7 +195,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Mayfield Estates Specialist</h3>
                 <p className="text-gray-600">
-                  Deep understanding of this exclusive community
+                  Deep understanding of this community
                 </p>
               </div>
             </div>
@@ -239,7 +239,7 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Summerlin</h3>
                   <p className="text-gray-600 mb-4">Master-planned community with world-class amenities</p>
                   <ul className="text-sm text-gray-500 space-y-1">
-                    <li>✓ Top Schools</li>
+                    <li>✓ Nearby Public Schools</li>
                     <li>✓ Golf Courses</li>
                     <li>✓ Parks & Trails</li>
                   </ul>
@@ -248,10 +248,10 @@ export default function Home() {
               <Link href="/las-vegas-neighborhoods/green-valley" className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Green Valley</h3>
-                  <p className="text-gray-600 mb-4">Established community with excellent schools</p>
+                  <p className="text-gray-600 mb-4">Older community with nearby schools</p>
                   <ul className="text-sm text-gray-500 space-y-1">
-                    <li>✓ Family Friendly</li>
-                    <li>✓ Great Schools</li>
+                    <li>✓ Parks Nearby</li>
+                    <li>✓ Nearby public schools</li>
                     <li>✓ Affordable Luxury</li>
                   </ul>
                 </div>

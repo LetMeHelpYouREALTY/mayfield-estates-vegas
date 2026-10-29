@@ -180,7 +180,7 @@ export default function NorthLasVegasPage() {
                   { title: 'New Construction', desc: 'Modern floor plans and features' },
                   { title: 'Growing Infrastructure', desc: 'Continuous development and improvements' },
                   { title: 'Economic Development', desc: 'Strong job market and opportunities' },
-                  { title: 'Master-Planned Communities', desc: 'Amenities and family-friendly neighborhoods' },
+                  { title: 'Master-Planned Communities', desc: 'Amenities and master-planned neighborhoods' },
                   { title: 'Investment Potential', desc: 'Strong growth and appreciation potential' },
                 ].map((benefit, idx) => (
                   <div key={idx} className="bg-gray-50 p-6 rounded-xl">

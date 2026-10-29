@@ -8,10 +8,10 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Green Valley Las Vegas | Family Community Real Estate Guide',
-  description: 'Explore Green Valley, Las Vegas established family community. Learn about affordable homes, excellent schools, parks, and convenient location. Expert real estate insights from Dr. Jan Duffy.',
+  description: 'Explore Green Valley, Las Vegas established family community. Learn about affordable homes, nearby public schools, parks, and convenient location. Expert real estate insights from Dr. Jan Duffy.',
   openGraph: {
-    title: 'Green Valley Las Vegas | Family-Friendly Community',
-    description: 'Discover Green Valley, a perfect blend of established neighborhoods, excellent schools, and convenient amenities.',
+    title: 'Green Valley Las Vegas | Community',
+    description: 'Discover Green Valley, a perfect blend of older neighborhoods, nearby public schools, and convenient amenities.',
   },
 };
 
@@ -64,9 +64,9 @@ export default function GreenValleyPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is Green Valley known for?", "acceptedAnswer": { "@type": "Answer", "text": "Green Valley is an established family community in Henderson with excellent schools, 30+ parks, tree-lined streets, and affordable housing." } },
+      { "@type": "Question", "name": "What is Green Valley known for?", "acceptedAnswer": { "@type": "Answer", "text": "Green Valley is an established family community in Henderson with nearby public schools, 30+ parks, tree-lined streets, and affordable housing." } },
       { "@type": "Question", "name": "How much do homes cost in Green Valley?", "acceptedAnswer": { "@type": "Answer", "text": "Average home prices in Green Valley are around $450K+. For a custom CMA, request one on our CMA page or contact Dr. Jan Duffy." } },
-      { "@type": "Question", "name": "Are there good schools in Green Valley?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Green Valley is served by top-rated Clark County School District schools and is popular with families." } },
+      { "@type": "Question", "name": "Which schools serve Green Valley?", "acceptedAnswer": { "@type": "Answer", "text": "Green Valley is served by Clark County School District schools. Check CCSD and state data for current ratings." } },
       { "@type": "Question", "name": "How do I get a home value in Green Valley?", "acceptedAnswer": { "@type": "Answer", "text": "Use our Home Value or What's Your Home Worth? tools for an estimate. For a custom CMA, request a CMA or contact Dr. Jan Duffy." } },
       { "@type": "Question", "name": "Who can help me buy or sell in Green Valley?", "acceptedAnswer": { "@type": "Answer", "text": "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas area real estate including Green Valley." } },
       { "@type": "Question", "name": "How do I contact Dr. Jan Duffy?", "acceptedAnswer": { "@type": "Answer", "text": "Call (702) 500-1953, use the Book a Free Call button on any page, or visit our Contact page. Dr. Jan Duffy responds within 24 hours." } },
@@ -122,8 +122,8 @@ export default function GreenValleyPage() {
                     About Green Valley
                   </h2>
                   <p className="text-lg text-gray-700 mb-4">
-                    Green Valley is a well-established community in Henderson, Nevada, offering an ideal 
-                    blend of family-friendly amenities, excellent schools, and affordable housing. Developed 
+                    Green Valley is an older community in Henderson, Nevada, offering an ideal 
+                    blend of community amenities, nearby schools, and affordable housing. Developed 
                     primarily in the 1980s and 1990s, Green Valley has matured into one of Las Vegas most 
                     desirable residential areas.
                   </p>
@@ -185,8 +185,8 @@ export default function GreenValleyPage() {
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  { title: 'Excellent Schools', desc: 'Top-rated schools in Clark County School District' },
-                  { title: 'Family-Friendly', desc: 'Safe neighborhoods with strong community spirit' },
+                  { title: 'Nearby Public Schools', desc: 'public schools in Clark County School District' },
+                  { title: 'Parks & Recreation', desc: 'Parks and strong community spirit' },
                   { title: 'Great Parks', desc: '30+ parks including Arroyo Grande Sports Complex' },
                   { title: 'Convenient Location', desc: 'Easy access to freeways and major destinations' },
                   { title: 'Diverse Housing', desc: 'Homes, condos, and townhomes for every budget' },
@@ -207,14 +207,14 @@ export default function GreenValleyPage() {
               <dl className="space-y-4 max-w-3xl mx-auto">
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">What is Green Valley known for?</dt>
-                  <dd className="text-gray-700">Green Valley is an established family community in Henderson with excellent schools, 30+ parks, tree-lined streets, and affordable housing. See our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page for more areas.</dd>
+                  <dd className="text-gray-700">Green Valley is an established family community in Henderson with nearby public schools, 30+ parks, tree-lined streets, and affordable housing. See our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page for more areas.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
                   <dt className="text-lg font-semibold text-gray-900 mb-2">How much do homes cost in Green Valley?</dt>
                   <dd className="text-gray-700">Average home prices in Green Valley are around $450K+. For a custom <Link href="/cma" className="text-blue-600 hover:underline">CMA</Link> or <Link href="/home-value" className="text-blue-600 hover:underline">home value estimate</Link>, contact Dr. Jan Duffy.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
-                  <dt className="text-lg font-semibold text-gray-900 mb-2">Are there good schools in Green Valley?</dt>
+                  <dt className="text-lg font-semibold text-gray-900 mb-2">Are there nearby public schools in Green Valley?</dt>
                   <dd className="text-gray-700">Yes. Green Valley is served by top-rated Clark County School District schools and is popular with families. See our <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> page for more.</dd>
                 </div>
                 <div className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm">
@@ -240,7 +240,7 @@ export default function GreenValleyPage() {
                 Find Your Home in Green Valley
               </h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Let me help you explore Green Valley homes and find the perfect family-friendly property.
+                Let me help you explore Green Valley homes and find the perfect property.
               </p>
               <Link
                 href="/contact"
