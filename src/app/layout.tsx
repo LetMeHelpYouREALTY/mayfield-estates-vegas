@@ -4,6 +4,8 @@ import './globals.css';
 import Script from 'next/script';
 import Analytics from '@/components/Analytics';
 import { CalendlyGlobal } from '@/components/CalendlyGlobal';
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -136,6 +138,8 @@ export default function RootLayout({
         <Analytics />
         {children}
         <CalendlyGlobal />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
