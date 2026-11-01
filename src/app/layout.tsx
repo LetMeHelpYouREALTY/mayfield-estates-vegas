@@ -11,6 +11,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mayfieldestates
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Default self-referencing canonical for every route (pages/layouts may override)
+  alternates: { canonical: './' },
   title: process.env.NEXT_PUBLIC_SITE_NAME || 'Mayfield Estates Las Vegas Real Estate | Dr. Jan Duffy, REALTOR®',
   description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Expert Mayfield Estates Las Vegas real estate agent. Luxury homes for sale, market analysis, and professional guidance in this exclusive gated community. Veteran & women-owned.',
   openGraph: {
