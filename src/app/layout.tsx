@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Script from 'next/script';
 import Analytics from '@/components/Analytics';
+import RealtorAnalytics from '@/components/RealtorAnalytics';
 import { CalendlyGlobal } from '@/components/CalendlyGlobal';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -135,6 +136,7 @@ export default function RootLayout({
         <a href="#main-content" className="absolute -left-[9999px] focus:left-4 focus:top-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:outline-none">
           Skip to main content
         </a>
+        <RealtorAnalytics siteName="Mayfield Estates" />
         <Analytics />
         {children}
         <CalendlyGlobal />
