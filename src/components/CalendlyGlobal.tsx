@@ -2,7 +2,8 @@
 
 import Script from 'next/script';
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/appointment';
+const CALENDLY_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=sticky-cta';
 
 declare global {
   interface Window {

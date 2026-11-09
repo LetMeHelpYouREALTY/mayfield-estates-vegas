@@ -1,6 +1,7 @@
 'use client';
 
-const CALENDLY_URL = 'https://calendly.com/drjanduffy/appointment';
+const CALENDLY_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=contact-inline';
 
 interface CalendlySectionProps {
   /** Optional height in pixels (default 700) */

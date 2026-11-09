@@ -1,6 +1,5 @@
 'use client';
 
-import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
@@ -8,22 +7,10 @@ import Footer from '@/components/Footer';
 import { CalendlySection } from '@/components/CalendlySection';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
-export default function ContactPage() {
-  const contactPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Dr. Jan Duffy - Mayfield Estates Las Vegas",
-    "description": "Contact Dr. Jan Duffy for Mayfield Estates and Las Vegas luxury real estate. Schedule a free consultation, get a home value, or tour luxury properties.",
-    "url": "https://www.mayfieldestateslasvegas.com/contact",
-    "mainEntity": {
-      "@type": "RealEstateAgent",
-      "name": "Dr. Jan Duffy",
-      "telephone": "+1-702-500-1955",
-      "email": "DrDuffySells@MayfieldEstatesLasVegas.com",
-      "areaServed": { "@type": "Place", "name": "Mayfield Estates, Las Vegas, NV" }
-    }
-  };
+const LISTING_CONSULTATION_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=contact-hero';
 
+export default function ContactPage() {
   const contactFaqItems = [
     { q: 'How do I contact Dr. Jan Duffy?', a: 'You can call (702) 500-1955, email DrDuffySells@MayfieldEstatesLasVegas.com, or use the "Book your free 15‑min call" button on any page to schedule a call. Our Contact page also has an embedded scheduler for your convenience.' },
     { q: 'What should I expect when I call or schedule a call?', a: 'Dr. Jan Duffy or her team will discuss your goals—whether you\'re buying, selling, or exploring your home value in Las Vegas or Mayfield Estates. You can also get a quick home value on our Home Value page or request a CMA on our Request CMA page before reaching out.' },
@@ -33,116 +20,8 @@ export default function ContactPage() {
     { q: 'I want to sell my home. How do I get started?', a: 'Get a free home value on our Home Value page or request a CMA on our Request CMA page. Then book a free call or contact us to discuss listing strategy. See our Sellers page for more on the selling process.' },
   ];
 
-  const contactFaqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: contactFaqItems.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
-  };
-
-  const businessSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "Dr. Jan Duffy",
-    "image": "https://www.mayfieldestateslasvegas.com/images/team/drjanduffywithgooldcircle.jpg",
-    "description": "Mayfield Estates Las Vegas specialist. Veteran-owned and women-owned real estate business providing expert guidance for luxury homes and estates in this premier gated community.",
-    "url": "https://www.mayfieldestateslasvegas.com",
-    "telephone": "+1-702-500-1955",
-    "email": "DrDuffySells@MayfieldEstatesLasVegas.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Las Vegas",
-      "addressRegion": "NV",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "36.1699",
-      "longitude": "-115.1398"
-    },
-    "areaServed": {
-      "@type": "Neighborhood",
-      "name": "Mayfield Estates",
-      "containedIn": {
-        "@type": "City",
-        "name": "Las Vegas",
-        "sameAs": "https://en.wikipedia.org/wiki/Las_Vegas"
-      }
-    },
-    "specialties": [
-      "Mayfield Estates Las Vegas",
-      "Luxury Homes",
-      "Gated Communities",
-      "Estate Properties"
-    ],
-    "sameAs": [
-      "https://www.bhhsnv.com/agent/dr-jan-duffy",
-      "https://www.linkedin.com/in/dr-jan-duffy"
-    ],
-    "knowsAbout": [
-      "Mayfield Estates Las Vegas",
-      "Las Vegas Luxury Real Estate",
-      "Gated Communities",
-      "Estate Properties",
-      "Property Valuation",
-      "Real Estate Investment"
-    ],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "Doctorate",
-        "name": "Doctorate Degree"
-      },
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "license",
-        "name": "Nevada Real Estate License"
-      }
-    ],
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Mayfield Estates Property Services",
-          "description": "Specialized real estate services for Mayfield Estates luxury homes"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Luxury Home Valuation",
-          "description": "Expert valuation services for luxury properties in Mayfield Estates"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Estate Property Consultation",
-          "description": "Professional consultation for estate properties in Las Vegas"
-        }
-      }
-    ]
-  };
-
   return (
     <>
-      <Script 
-        id="contact-page-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
-      />
-      <Script 
-        id="business-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
-      />
-      <Script 
-        id="contact-faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactFaqSchema) }}
-      />
       <div className="min-h-screen bg-gray-50">
         {/* Navigation */}
         <div className="fixed w-full z-10">
@@ -161,7 +40,17 @@ export default function ContactPage() {
                 Your Trusted Las Vegas Real Estate Expert
               </p>
               <p className="text-blue-200 max-w-2xl mx-auto">
-                Contact Dr. Jan Duffy for Mayfield Estates and Las Vegas luxury real estate. Schedule a free consultation, get a home value report, or tour luxury properties. Call (702) 500-1955 or book online. Veteran-owned and women-owned. Responds within 24 hours.
+                Contact Dr. Jan Duffy for Mayfield Estates home valuations and listing guidance in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way. Call (702) 500-1955 or{' '}
+                <a
+                  href={LISTING_CONSULTATION_URL}
+                  className="underline hover:text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  book a listing consultation
+                  <span className="sr-only"> (opens Calendly in a new tab)</span>
+                </a>
+                . Responds within 24 hours.
               </p>
             </div>
           </div>
@@ -173,7 +62,7 @@ export default function ContactPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">How to Reach Dr. Jan Duffy</h2>
             <p className="text-gray-700 mb-4">
-              Contact Dr. Jan Duffy for Mayfield Estates and Las Vegas luxury real estate. Whether you want to schedule a free consultation, get a <Link href="/home-value" className="text-blue-600 hover:underline">home value report</Link>, request a <Link href="/cma" className="text-blue-600 hover:underline">CMA</Link>, or explore <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas neighborhoods</Link>, you can call, email, or book online. For more on her services, see our <Link href="/about" className="text-blue-600 hover:underline">About</Link>, <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link>, and <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> pages, or read our <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>.
+              Contact Dr. Jan Duffy for Mayfield Estates seller guidance in ZIP 89129. Whether you want a <Link href="/home-value" className="text-blue-600 hover:underline">home value report</Link>, a <Link href="/cma" className="text-blue-600 hover:underline">CMA</Link>, or neighborhood context on <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates</Link>, you can call, email, or book online. See our <Link href="/about" className="text-blue-600 hover:underline">About</Link>, <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link>, and <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> pages, or read our <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>.
             </p>
             <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-2">Phone &amp; Email</h3>
             <p className="text-gray-700 mb-4">
@@ -232,24 +121,6 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     Las Vegas, Nevada
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <h3 className="text-lg font-semibold mb-4">Business Certifications</h3>
-                  <div className="flex space-x-4">
-                    <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
-                      <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                      Veteran-Owned
-                    </div>
-                    <div className="flex items-center bg-blue-50 px-4 py-2 rounded-full">
-                      <svg className="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                      Women-Owned
-                    </div>
                   </div>
                 </div>
 

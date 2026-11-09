@@ -1,108 +1,112 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { serializeJsonLd } from '@/lib/jsonLd';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mayfieldestateslasvegas.com';
+
+const LISTING_CONSULTATION_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=neighborhood-cta';
 
 export const metadata: Metadata = {
-  title: 'Mayfield Estates Las Vegas | Exclusive Gated Community | Luxury Homes',
-  description: 'Explore Mayfield Estates, Las Vegas premier exclusive gated community. Learn about luxury estates, world-class amenities, privacy, and security. Expert insights from Dr. Jan Duffy, Mayfield Estates specialist.',
+  title: 'Mayfield Estates Guide | Dr. Jan Duffy | 89129',
+  description:
+    'Mayfield Estates in northwest Las Vegas (ZIP 89129) near W Craig Rd and Tenaya Way. Community facts and seller guidance from Dr. Jan Duffy.',
   openGraph: {
-    title: 'Mayfield Estates Las Vegas | Exclusive Gated Community',
-    description: 'Discover Mayfield Estates, Las Vegas premier exclusive gated community with luxury estates and world-class amenities.',
+    title: 'Mayfield Estates Guide | Dr. Jan Duffy | 89129',
+    description:
+      'Northwest Las Vegas subdivision facts, HOA context, and seller resources for Mayfield Estates.',
   },
 };
 
-export default function MayfieldEstatesPage() {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ResidentialComplexOrSubdivision",
-    "name": "Mayfield Estates",
-    "description": "Established residential community in Las Vegas, Nevada",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Las Vegas",
-      "addressRegion": "NV",
-      "addressCountry": "US"
+const faqVisible = [
+  {
+    q: 'Where is Mayfield Estates located?',
+    a: 'Mayfield Estates is in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way.',
+  },
+  {
+    q: 'What are the HOA fees in Mayfield Estates?',
+    a: 'Vivahomevegas.com MLS listing 2471650 (reviewed 2026-11-09) listed landscape-maintenance HOA dues at $35/month. Confirm current dues with the association or your title company before closing.',
+  },
+  {
+    q: 'When were homes in Mayfield Estates built?',
+    a: 'MLS listing 2471650 on vivahomevegas.com (2026-11-09) noted construction around 2003–2005 for this subdivision.',
+  },
+  {
+    q: 'How do I get a home value in Mayfield Estates?',
+    a: 'Use our Home Value page or request a CMA, then book a listing consultation with Dr. Jan Duffy to review pricing and next steps.',
+  },
+];
+
+const subdivisionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ResidentialComplexOrSubdivision',
+  name: 'Mayfield Estates',
+  description:
+    'Mayfield Estates is a 236-home HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89129',
+    addressCountry: 'US',
+  },
+  yearBuilt: '2004',
+  url: `${siteUrl}/las-vegas-neighborhoods/mayfield-estates`,
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqVisible.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: siteUrl,
     },
-    "yearBuilt": "2004",
-    "url": "https://www.mayfieldestateslasvegas.com/las-vegas-neighborhoods/mayfield-estates"
-  };
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Las Vegas Neighborhoods',
+      item: `${siteUrl}/las-vegas-neighborhoods`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Mayfield Estates',
+      item: `${siteUrl}/las-vegas-neighborhoods/mayfield-estates`,
+    },
+  ],
+};
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Are there homes for sale in Mayfield Estates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! Mayfield Estates regularly has homes available for sale. Current listings range from $560,000 to $660,000, with homes typically priced around $182 per square foot. The community features both condos, townhomes, and single-family homes ranging from 2,733 to 3,723 square feet."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are the HOA fees in Mayfield Estates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Homeowner association fees in Mayfield Estates range from $25 to $75 per month, making them very affordable compared to many Las Vegas communities. These fees contribute to the maintenance of common areas and community amenities."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are there rental properties in Mayfield Estates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While Mayfield Estates primarily consists of owner-occupied homes, rental properties do occasionally become available. Rental rates typically reflect the current market value and community desirability."
-        }
-      }
-    ]
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.mayfieldestateslasvegas.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Las Vegas Neighborhoods",
-        "item": "https://www.mayfieldestateslasvegas.com/las-vegas-neighborhoods"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Mayfield Estates",
-        "item": "https://www.mayfieldestateslasvegas.com/las-vegas-neighborhoods/mayfield-estates"
-      }
-    ]
-  };
-
+export default function MayfieldEstatesPage() {
   return (
     <>
-      <Script
-        id="local-business-schema"
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(subdivisionSchema) }}
       />
-      <Script
-        id="faq-schema"
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
-      <Script
-        id="breadcrumb-schema"
+      <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbSchema) }}
       />
       <div className="min-h-screen bg-gray-50">
         <div className="fixed w-full z-10">
@@ -111,46 +115,55 @@ export default function MayfieldEstatesPage() {
 
         <main id="main-content" className="pt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-            <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Las Vegas Neighborhoods', href: '/las-vegas-neighborhoods' }, { label: 'Mayfield Estates' }]} />
+            <Breadcrumbs
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Las Vegas Neighborhoods', href: '/las-vegas-neighborhoods' },
+                { label: 'Mayfield Estates' },
+              ]}
+            />
           </div>
-          {/* Hero Section */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                  Mayfield Estates Las Vegas
-                </h1>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">Mayfield Estates Las Vegas</h1>
                 <p className="text-xl md:text-2xl text-blue-100">
-                  Exclusive Gated Community
+                  Northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Overview Section */}
           <div className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    About Mayfield Estates
-                  </h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">About Mayfield Estates</h2>
                   <p className="text-lg text-gray-700 mb-4">
-                    <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 font-semibold">Mayfield Estates</Link> is an older neighborhood in <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:text-blue-800">Las Vegas, Nevada</Link>, featuring midsize 
-                    homes that are very reasonably priced. This community dates back to 2004, with construction 
-                    completed around that time, offering a mature, settled atmosphere in one of Las Vegas most 
-                    desirable areas.
+                    <Link
+                      href="/las-vegas-neighborhoods/mayfield-estates"
+                      className="text-blue-600 hover:text-blue-800 font-semibold"
+                    >
+                      Mayfield Estates
+                    </Link>{' '}
+                    is a 236-home landscape-maintenance HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way
+                    (Nevada HOA directory via realtordirectorynevada.com, reviewed 2026-11-09).
                   </p>
                   <p className="text-lg text-gray-700 mb-4">
-                    The community features spacious homes ranging from 2,733 to 3,723 square feet, with 3 to 6 
-                    bedrooms and 3 to 4 bathrooms. Mayfield Estates offers both attached homes (condos, townhouses) 
-                    and single-family homes, providing diverse housing options to suit various lifestyles.
+                    Vivahomevegas.com MLS listing 2471650 (2026-11-09) notes builds around 2003–2005 and HOA dues at $35/month.
+                    Homes in the area are mostly midsize single-family and attached residences typical of early-2000s northwest Las Vegas
+                    infill.
                   </p>
                   <p className="text-lg text-gray-700">
-                    As your trusted Mayfield Estates specialist, I bring deep knowledge of this established 
-                    community and can help you find or sell your perfect home. With comprehensive market expertise 
-                    and local connections, I provide personalized service to meet the unique needs of buyers and 
-                    sellers in Mayfield Estates.
+                    Dr. Jan Duffy helps Mayfield Estates owners with pricing, marketing, and negotiation. Start with a{' '}
+                    <Link href="/home-value" className="text-blue-600 hover:underline">
+                      home value estimate
+                    </Link>{' '}
+                    or{' '}
+                    <Link href="/cma" className="text-blue-600 hover:underline">
+                      CMA
+                    </Link>{' '}
+                    before listing.
                   </p>
                 </div>
                 <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
@@ -165,49 +178,49 @@ export default function MayfieldEstatesPage() {
             </div>
           </div>
 
-          {/* Stats Section */}
           <div className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Mayfield Estates by the Numbers
-              </h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Mayfield Estates at a Glance</h2>
               <div className="grid md:grid-cols-4 gap-8">
                 <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">$445K</div>
-                  <div className="text-gray-700">Median Sale Price</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">236</div>
+                  <div className="text-gray-700">Homes (HOA directory, 2026-11-09)</div>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">$182</div>
-                  <div className="text-gray-700">Per Sq Ft</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">89129</div>
+                  <div className="text-gray-700">ZIP code</div>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">2.7K-3.7K</div>
-                  <div className="text-gray-700">Square Feet</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">$35</div>
+                  <div className="text-gray-700">HOA/mo (MLS 2471650, 2026-11-09)</div>
                 </div>
                 <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">2004</div>
-                  <div className="text-gray-700">Established</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">2003–05</div>
+                  <div className="text-gray-700">Typical build years</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Features Section */}
           <div className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Why Choose Mayfield Estates?
-              </h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Why Owners Choose Mayfield Estates</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {[
-                  { title: 'Reasonably Priced', desc: 'Great value with homes from $560K-$660K' },
-                  { title: 'Well-Established', desc: 'Older community dating back to 2004' },
-                  { title: 'Diverse Housing', desc: 'Condos, townhomes, and single-family homes' },
-                  { title: 'Midsize Homes', desc: '2,733 to 3,723 sq ft homes with 3-6 bedrooms' },
-                  { title: 'Affordable HOA', desc: 'Association fees from $25-$75/month' },
-                  { title: 'Prime Location', desc: 'Convenient Las Vegas address' },
-                ].map((feature, idx) => (
-                  <div key={idx} className="bg-gray-50 p-6 rounded-xl">
+                  {
+                    title: 'Northwest location',
+                    desc: 'Near W Craig Rd and Tenaya Way with retail and commute options across northwest Las Vegas.',
+                  },
+                  {
+                    title: 'Predictable HOA',
+                    desc: 'Landscape-maintenance association; confirm current dues before you list or buy.',
+                  },
+                  {
+                    title: 'Midsize floor plans',
+                    desc: 'Early-2000s homes suited to resale and move-up sellers in ZIP 89129.',
+                  },
+                ].map((feature) => (
+                  <div key={feature.title} className="bg-gray-50 p-6 rounded-xl">
                     <h3 className="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h3>
                     <p className="text-gray-600">{feature.desc}</p>
                   </div>
@@ -216,12 +229,9 @@ export default function MayfieldEstatesPage() {
             </div>
           </div>
 
-          {/* Gallery Section */}
           <div className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Mayfield Estates Gallery
-              </h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Mayfield Estates Gallery</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
                   <Image
@@ -251,80 +261,36 @@ export default function MayfieldEstatesPage() {
             </div>
           </div>
 
-          {/* FAQ Section */}
           <div className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Frequently Asked Questions About Mayfield Estates
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Are there homes for sale in Mayfield Estates?</h3>
-                  <p className="text-gray-600">
-                    Yes! Mayfield Estates regularly has homes available for sale. Current listings range from $560,000 to $660,000, 
-                    with homes typically priced around $182 per square foot. The community features both condos, townhomes, and 
-                    single-family homes ranging from 2,733 to 3,723 square feet.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">What are the HOA fees in Mayfield Estates?</h3>
-                  <p className="text-gray-600">
-                    Homeowner association fees in Mayfield Estates range from $25 to $75 per month, making them very affordable 
-                    compared to many Las Vegas communities. These fees contribute to the maintenance of common areas and community 
-                    amenities.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Are there rental properties in Mayfield Estates?</h3>
-                  <p className="text-gray-600">
-                    While Mayfield Estates primarily consists of owner-occupied homes, rental properties do occasionally become 
-                    available. Rental rates typically reflect the current market value and community desirability. Contact me for 
-                    current rental listings.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Where is Mayfield Estates located?</h3>
-                  <p className="text-gray-600">
-                    Mayfield Estates is conveniently located in Las Vegas, Nevada. This older community offers easy access 
-                    to major shopping, dining, entertainment, and employment centers throughout the Las Vegas metropolitan area.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">What are residents saying about Mayfield Estates?</h3>
-                  <p className="text-gray-600">
-                    Residents appreciate Mayfield Estates for its mature, established feel, reasonably priced homes, and convenient 
-                    location. The community&apos;s diverse housing options appeal to a wide range of buyers, from first-time homeowners 
-                    to those seeking spacious single-family residences.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">What types of homes are available?</h3>
-                  <p className="text-gray-600">
-                    Mayfield Estates offers diverse housing options including attached homes (condos and townhouses) and single-family 
-                    homes. Homes feature 3 to 6 bedrooms, 3 to 4 bathrooms, and range from 2,733 to 3,723 square feet.
-                  </p>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions About Mayfield Estates</h2>
+              <dl className="grid md:grid-cols-2 gap-8">
+                {faqVisible.map(({ q, a }) => (
+                  <div key={q}>
+                    <dt className="text-xl font-semibold text-gray-900 mb-3">{q}</dt>
+                    <dd className="text-gray-600">{a}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
 
-          {/* CTA Section */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Schedule a Tour or Get Your Home Value
-              </h2>
+              <h2 className="text-3xl font-bold mb-4">Schedule a listing consultation or get your home value</h2>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Book a free consultation with Dr. Jan Duffy—tour Mayfield Estates, get a CMA, or discuss buying or selling. Responds within 24 hours.
+                Book a free listing consultation with Dr. Jan Duffy, or start with a CMA for your Mayfield Estates address.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link
-                  href="/contact"
+                <a
+                  href={LISTING_CONSULTATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-colors shadow-lg inline-flex items-center justify-center gap-2"
                 >
-                  Book a Free Call
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                </Link>
+                  Book listing consultation
+                  <span className="sr-only"> (opens Calendly in a new tab)</span>
+                </a>
                 <Link
                   href="/cma"
                   className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-colors"
@@ -340,4 +306,3 @@ export default function MayfieldEstatesPage() {
     </>
   );
 }
-

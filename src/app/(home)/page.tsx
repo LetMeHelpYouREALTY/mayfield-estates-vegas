@@ -7,24 +7,13 @@ import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
-const homeFaqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'What is Mayfield Estates Las Vegas?', acceptedAnswer: { '@type': 'Answer', text: 'Mayfield Estates is a premier gated community in the Las Vegas area, known for luxury homes and desirable amenities. Dr. Jan Duffy specializes in helping buyers and sellers in Mayfield Estates and surrounding neighborhoods.' } },
-    { '@type': 'Question', name: 'How can I get my home value or a CMA?', acceptedAnswer: { '@type': 'Answer', text: 'Get a free home value report on our Home Value page or request a CMA for a detailed Comparative Market Analysis. Dr. Jan Duffy provides both at no obligation.' } },
-    { '@type': 'Question', name: 'How do I buy a home in Mayfield Estates or Las Vegas?', acceptedAnswer: { '@type': 'Answer', text: 'Start by exploring our Las Vegas Neighborhoods page and Property Listings, then book a free 15-minute call. See our Buyers page for the full process.' } },
-    { '@type': 'Question', name: 'How do I sell my home in Las Vegas or Mayfield Estates?', acceptedAnswer: { '@type': 'Answer', text: 'Get your home value and request a CMA, then book a call to discuss listing strategy. See our Sellers page for more.' } },
-    { '@type': 'Question', name: 'What areas does Dr. Jan Duffy serve?', acceptedAnswer: { '@type': 'Answer', text: 'Dr. Jan Duffy serves Las Vegas, Mayfield Estates, Summerlin, Green Valley, Henderson, North Las Vegas, and the Southwest valley. Explore our Las Vegas Neighborhoods page or our About page for details.' } },
-    { '@type': 'Question', name: 'How do I contact Dr. Jan Duffy or schedule a call?', acceptedAnswer: { '@type': 'Answer', text: 'Use the Book your free 15 min call button on any page, call (702) 500-1955, or visit our Contact page. Dr. Jan Duffy responds within 24 hours.' } },
-  ],
-};
+const LISTING_CONSULTATION_URL =
+  'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=home-hero';
 
 // Main page component for Mayfield Estates Las Vegas
 export default function Home() {
   return (
     <>
-      <Script id="home-faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <Script 
         src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" 
         strategy="afterInteractive" 
@@ -42,7 +31,7 @@ export default function Home() {
           <div className="absolute inset-0 z-0 min-h-full w-full">
             <Image
               src="/images/hero/Water_DrJan1.JPG"
-              alt="Dr. Jan Duffy, Mayfield Estates Las Vegas real estate—luxury gated community and water features"
+              alt="Dr. Jan Duffy, Mayfield Estates Las Vegas real estate agent"
               fill
               priority
               sizes="100vw"
@@ -60,17 +49,17 @@ export default function Home() {
                 <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-sm font-medium">Luxury Gated Community</span>
+                <span className="text-sm font-medium">Northwest Las Vegas · ZIP 89129</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl tracking-tight">
-                Welcome to Mayfield Estates
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-2xl tracking-tight">
+                Welcome to Mayfield Estates | Get a Home Value
               </h1>
-              <p className="text-2xl md:text-4xl mb-4 font-light drop-shadow-lg text-blue-100">
-                Luxury Living in the Heart of Las Vegas
+              <p className="text-2xl md:text-3xl mb-4 font-light drop-shadow-lg text-blue-100">
+                Seller guidance for Mayfield Estates, northwest Las Vegas
               </p>
               <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-blue-50 drop-shadow-md">
-                Discover unrivaled luxury homes in Las Vegas&apos;s most exclusive gated community
+                Mayfield Estates sits in ZIP 89129 near W Craig Rd and Tenaya Way. Dr. Jan Duffy helps owners with home valuations, CMAs, and listing strategy.
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -83,25 +72,22 @@ export default function Home() {
                   </svg>
                   Get Your Home Value
                 </Link>
-                <Link 
-                  href="/contact" 
+                <a 
+                  href={LISTING_CONSULTATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white/10 backdrop-blur-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
                 >
-                  Contact Dr. Jan Duffy
+                  Schedule listing consultation
+                  <span className="sr-only"> (opens Calendly in a new tab)</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </a>
               </div>
 
               {/* Trust indicators */}
               <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-sm">
-                <div className="flex items-center gap-2 text-blue-100">
-                  <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Veteran & Women-Owned</span>
-                </div>
                 <div className="flex items-center gap-2 text-blue-100">
                   <svg className="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -132,14 +118,10 @@ export default function Home() {
                   About Mayfield Estates
                 </h2>
                 <p className="text-lg text-gray-600 mb-4">
-                  Experience the pinnacle of luxury living in <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 underline">Las Vegas at Mayfield Estates</Link>. 
-                  This exclusive gated community offers world-class amenities, stunning architecture, 
-                  and unparalleled privacy in one of the most sought-after neighborhoods in Nevada.
+                  <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 underline">Mayfield Estates</Link> is a 236-home HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way (sources: Nevada HOA directory via realtordirectorynevada.com, 2026-11-09).
                 </p>
                 <p className="text-lg text-gray-600 mb-6">
-                  As your trusted real estate expert, Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings experience 
-                  and a deep understanding of the Las Vegas luxury market to help you find or sell 
-                  your perfect home in Mayfield Estates.
+                  Most homes were built around 2003–2005; landscape-maintenance HOA dues were listed at $35/month on vivahomevegas.com MLS listing 2471650 (2026-11-09). Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, helps owners price, market, and sell in this subdivision.
                 </p>
                 <Link 
                   href="/contact"
@@ -151,7 +133,7 @@ export default function Home() {
               <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/images/hero/market-featured.jpg"
-                  alt="Luxury home interior with modern furnishings and open floor plan"
+                  alt="Interior of a Las Vegas area home"
                   fill
                   className="object-cover"
                 />
@@ -173,7 +155,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Expert Knowledge</h3>
                 <p className="text-gray-600">
-                  Licensed since 2008 · 35 years in Las Vegas, with deep Las Vegas luxury market knowledge
+                  Licensed since 2008 · 35 years in Las Vegas, with Northwest valley resale experience
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg text-center">
@@ -182,9 +164,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Veteran & Women-Owned</h3>
+                <h3 className="text-xl font-semibold mb-2">BHHS Nevada Properties</h3>
                 <p className="text-gray-600">
-                  Proudly serving with integrity and dedication
+                  Berkshire Hathaway HomeServices Nevada Properties
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg text-center">
@@ -216,21 +198,21 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Explore Las Vegas Luxury Real Estate
+                Explore Las Vegas Neighborhoods
               </h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 underline">Mayfield Estates</Link> to <Link href="/las-vegas-neighborhoods/summerlin" className="text-blue-600 hover:text-blue-800 underline">Summerlin</Link>, <Link href="/las-vegas-neighborhoods/green-valley" className="text-blue-600 hover:text-blue-800 underline">Green Valley</Link>, and beyond—discover the finest <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:text-blue-800 underline">neighborhoods in Las Vegas</Link>
+                Start with <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:text-blue-800 underline">Mayfield Estates</Link> in northwest Las Vegas, or browse <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:text-blue-800 underline">other Las Vegas neighborhoods</Link> Dr. Jan Duffy covers.
               </p>
             </div>
             <div className="grid md:grid-cols-4 gap-6">
               <Link href="/las-vegas-neighborhoods/mayfield-estates" className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Mayfield Estates</h3>
-                  <p className="text-gray-600 mb-4">Exclusive gated community offering privacy and luxury</p>
+                  <p className="text-gray-600 mb-4">Northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way</p>
                   <ul className="text-sm text-gray-500 space-y-1">
-                    <li>✓ Security & Privacy</li>
-                    <li>✓ Luxury Amenities</li>
-                    <li>✓ Spacious Estates</li>
+                    <li>✓ Home valuations &amp; CMAs</li>
+                    <li>✓ ~2003–2005 builds (per MLS 2471650)</li>
+                    <li>✓ Landscape-maintenance HOA</li>
                   </ul>
                 </div>
               </Link>
@@ -302,15 +284,18 @@ export default function Home() {
               Schedule a free consultation with Dr. Jan Duffy. Get a home value, tour Mayfield Estates, or discuss your buying or selling goals—no obligation.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link
-                href="/contact"
+              <a
+                href="https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=home-cta"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all shadow-lg hover:scale-105"
               >
-                Book a Free Call
+                Book a listing consultation
+                <span className="sr-only"> (opens Calendly in a new tab)</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-              </Link>
+              </a>
               <a
                 href="tel:+17025001955"
                 className="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all"
@@ -360,7 +345,7 @@ export default function Home() {
             <dl className="space-y-4">
               <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">What is Mayfield Estates Las Vegas?</dt>
-                <dd className="text-gray-700">Mayfield Estates is a premier gated community in the Las Vegas area, known for luxury homes and desirable amenities. Dr. Jan Duffy specializes in helping buyers and sellers in Mayfield Estates and surrounding neighborhoods. Explore our <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates neighborhood page</Link> for more.</dd>
+                <dd className="text-gray-700">Mayfield Estates is a 236-home HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way. Dr. Jan Duffy specializes in home valuations and seller representation in this subdivision. Explore our <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates neighborhood page</Link> for more.</dd>
               </div>
               <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
                 <dt className="text-lg font-semibold text-gray-900 mb-2">How can I get my home value or a CMA?</dt>

@@ -30,7 +30,8 @@ export const neighborhoodData: Record<string, NeighborhoodInfo> = {
     inventory: 145,
     schoolRating: 4.8,
     recentTransactions: 37,
-    expertQuote: "Summerlin isn't just a neighborhood—it's a lifestyle statement. I've closed 37 transactions here in the past 18 months alone, and I can tell you which sub-communities are appreciating fastest and which HOAs actually deliver on their amenity promises.",
+    expertQuote:
+      "Summerlin is a large master-planned area with varied HOA rules and price points. I track active listings and closed sales by village so buyers and sellers can compare dues, amenities, and commute routes before they commit.",
     pricePoint: "luxury",
     propertyTypes: ["single", "luxury", "townhome"],
     lifestyles: ["luxury", "family"],
