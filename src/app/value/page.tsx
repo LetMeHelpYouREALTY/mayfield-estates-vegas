@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import NearbyAmenitiesSection from '@/components/amenities/NearbyAmenitiesSection';
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -97,6 +98,12 @@ export default function ValuePage() {
                 For a second estimate or monthly updates, try our <Link href="/home-value" className="text-blue-600 hover:underline">Home Value</Link> page. For a detailed <Link href="/cma" className="text-blue-600 hover:underline">Comparative Market Analysis</Link>, request one or <Link href="/contact" className="text-blue-600 hover:underline">book a free call</Link>. Sellers can read our <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> page; buyers can explore <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> and neighborhood guides. For market insights, see our <Link href="/blog" className="text-blue-600 hover:underline">Blog</Link> and <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>.
               </p>
             </section>
+
+            <NearbyAmenitiesSection
+              title="What's near Mayfield Estates?"
+              description="Searching listings in Northwest Las Vegas? Explore dining, grocery, parks, and schools around Mayfield Estates."
+              className="bg-gray-100 -mx-4 sm:-mx-6 lg:-mx-8"
+            />
 
             <section className="mt-12 pt-8 border-t border-gray-200">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions About Home Value</h2>
