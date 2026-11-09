@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { homeFaqItems } from '@/data/homeFaq';
 
 const LISTING_CONSULTATION_URL =
   'https://calendly.com/drjanduffy/listing-consultation?utm_source=mayfieldestateslasvegas.com&utm_medium=website&utm_content=home-hero';
@@ -343,30 +344,12 @@ export default function Home() {
               Common questions about Mayfield Estates Las Vegas, buying and selling, and working with Dr. Jan Duffy. For more, see our <Link href="/about" className="text-blue-600 hover:underline">About</Link>, <Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link>, <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link>, <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link>, <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link>, and <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> pages.
             </p>
             <dl className="space-y-4">
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">What is Mayfield Estates Las Vegas?</dt>
-                <dd className="text-gray-700">Mayfield Estates is a 236-home HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way. Dr. Jan Duffy specializes in home valuations and seller representation in this subdivision. Explore our <Link href="/las-vegas-neighborhoods/mayfield-estates" className="text-blue-600 hover:underline">Mayfield Estates neighborhood page</Link> for more.</dd>
-              </div>
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">How can I get my home value or a CMA?</dt>
-                <dd className="text-gray-700">Get a free <Link href="/home-value" className="text-blue-600 hover:underline">home value report</Link> on our Home Value page or <Link href="/cma" className="text-blue-600 hover:underline">request a CMA</Link> for a detailed Comparative Market Analysis. Dr. Jan Duffy provides both at no obligation.</dd>
-              </div>
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">How do I buy a home in Mayfield Estates or Las Vegas?</dt>
-                <dd className="text-gray-700">Start by exploring our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page and <Link href="/value" className="text-blue-600 hover:underline">Property Listings</Link>, then book a free 15-minute call. See our <Link href="/buyers" className="text-blue-600 hover:underline">Buyers</Link> page for the full process.</dd>
-              </div>
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">How do I sell my home in Las Vegas or Mayfield Estates?</dt>
-                <dd className="text-gray-700">Get your <Link href="/home-value" className="text-blue-600 hover:underline">home value</Link> and <Link href="/cma" className="text-blue-600 hover:underline">request a CMA</Link>, then book a call to discuss listing strategy. See our <Link href="/sellers" className="text-blue-600 hover:underline">Sellers</Link> page for more.</dd>
-              </div>
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">What areas does Dr. Jan Duffy serve?</dt>
-                <dd className="text-gray-700">Dr. Jan Duffy serves Las Vegas, Mayfield Estates, Summerlin, Green Valley, Henderson, North Las Vegas, and the Southwest valley. Explore our <Link href="/las-vegas-neighborhoods" className="text-blue-600 hover:underline">Las Vegas Neighborhoods</Link> page or our <Link href="/about" className="text-blue-600 hover:underline">About</Link> page for details.</dd>
-              </div>
-              <div className="bg-gray-50 rounded-lg border border-gray-200 p-5">
-                <dt className="text-lg font-semibold text-gray-900 mb-2">How do I contact Dr. Jan Duffy or schedule a call?</dt>
-                <dd className="text-gray-700">Use the &quot;Book your free 15‑min call&quot; button on any page, call (702) 500-1955, or visit our <Link href="/contact" className="text-blue-600 hover:underline">Contact</Link> page. Dr. Jan Duffy responds within 24 hours.</dd>
-              </div>
+              {homeFaqItems.map(({ q, a }) => (
+                <div key={q} className="bg-gray-50 rounded-lg border border-gray-200 p-5">
+                  <dt className="text-lg font-semibold text-gray-900 mb-2">{q}</dt>
+                  <dd className="text-gray-700">{a}</dd>
+                </div>
+              ))}
             </dl>
           </div>
         </section>

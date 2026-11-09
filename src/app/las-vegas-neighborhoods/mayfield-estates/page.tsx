@@ -43,7 +43,7 @@ const faqVisible = [
 
 const subdivisionSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ResidentialComplexOrSubdivision',
+  '@type': 'Place',
   name: 'Mayfield Estates',
   description:
     'Mayfield Estates is a 236-home HOA in northwest Las Vegas, ZIP 89129, near W Craig Rd and Tenaya Way.',
@@ -54,7 +54,6 @@ const subdivisionSchema = {
     postalCode: '89129',
     addressCountry: 'US',
   },
-  yearBuilt: '2004',
   url: `${siteUrl}/las-vegas-neighborhoods/mayfield-estates`,
 };
 

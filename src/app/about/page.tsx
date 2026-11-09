@@ -33,31 +33,6 @@ const aboutFaqItems = [
 ];
 
 export default function AboutPage() {
-  const personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'RealEstateAgent',
-    name: 'Dr. Jan Duffy',
-    description: 'Mayfield Estates Las Vegas specialist, licensed since 2008 · 35 years in Las Vegas. Veteran-owned and women-owned real estate expertise for luxury homes and gated communities.',
-    image: 'https://www.mayfieldestateslasvegas.com/images/team/drjanduffywithgooldcircle.jpg',
-    url: 'https://www.mayfieldestateslasvegas.com',
-    telephone: '+1-702-500-1955',
-    email: 'DrDuffySells@MayfieldEstatesLasVegas.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Las Vegas',
-      addressRegion: 'NV',
-      addressCountry: 'US',
-    },
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Berkshire Hathaway HomeServices Nevada Properties',
-    },
-    hasCredential: [
-      { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Nevada Real Estate License S.0197614.LLC' },
-    ],
-    knowsAbout: ['Mayfield Estates Las Vegas', 'Luxury Homes', 'Gated Communities', 'Las Vegas Real Estate'],
-  };
-
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -189,7 +164,6 @@ export default function AboutPage() {
           </div>
         </div>
       </main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Footer />
     </div>

@@ -68,12 +68,16 @@ export default function RootLayout({
     areaServed: {
       '@type': 'Place',
       name: 'Mayfield Estates',
-      postalCode: '89129',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Las Vegas',
+        addressRegion: 'NV',
+        postalCode: '89129',
+        addressCountry: 'US',
+      },
       containedInPlace: {
         '@type': 'City',
         name: 'Las Vegas',
-        addressRegion: 'NV',
-        addressCountry: 'US',
       },
     },
   };
